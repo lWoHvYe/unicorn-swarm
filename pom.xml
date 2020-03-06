@@ -149,5 +149,6 @@
     <!--添加子模块-->
     <modules>
         <module>spring-cloud-lwohvye-api</module>
+        <module>spring-cloud-lwohvye-provider</module>
     </modules>
 </project>
