@@ -1,4 +1,4 @@
-package com.lwohvye.springcloud.springcloudlwohvyeapi.service;
+package com.lwohvye.springcloud.springcloudlwohvyeprovider.service;
 
 import com.github.pagehelper.PageInfo;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.Cnarea2018;

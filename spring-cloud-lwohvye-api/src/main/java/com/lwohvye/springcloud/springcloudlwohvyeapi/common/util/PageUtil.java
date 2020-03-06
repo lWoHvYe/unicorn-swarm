@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @PackageName: com.lwohvye.springboot.dubbointerface.common.util
+ * @PackageName: com.lwohvye.springcloud.springcloudlwohvyeapi.common.util
  * @ClassName: PageUtil
  * @Description: 分页相关工具类，当使用springboot-jpa时，提供相关的数据处理
  * 页面通过currentPage、pageSize、order进行相关参数的传递

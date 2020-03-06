@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 /**
  * @author Hongyan Wang
- * @packageName com.lwohvye.springboot.dubbointerface.common.util
+ * @packageName com.lwohvye.springcloud.springcloudlwohvyeapi.common.util
  * @className ListUtil
  * @description 使用Stream分割list为多个list
  * @date 2020/1/15 15:48

@@ -1,4 +1,4 @@
-package com.lwohvye.springcloud.springcloudlwohvyeapi.service;
+package com.lwohvye.springcloud.springcloudlwohvyeprovider.service;
 
 
 import com.lwohvye.springcloud.springcloudlwohvyeapi.common.util.PageUtil;

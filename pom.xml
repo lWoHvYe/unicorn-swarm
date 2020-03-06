@@ -102,6 +102,18 @@
                 <artifactId>knife4j-spring-boot-starter</artifactId>
                 <version>${knife4j-starter.version}</version>
             </dependency>
+            <!--shiro整合springboot-->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring-boot-web-starter</artifactId>
+                <version>${shiro-starter.version}</version>
+            </dependency>
+            <!--shiro整合redis-->
+            <dependency>
+                <groupId>org.crazycake</groupId>
+                <artifactId>shiro-redis</artifactId>
+                <version>${shiro-redis.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
