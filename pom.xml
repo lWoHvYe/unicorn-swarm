@@ -15,8 +15,8 @@
     <properties>
         <java.version>13</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.13</maven.compiler.source>
-        <maven.compiler.target>1.13</maven.compiler.target>
+        <maven.compiler.source>13</maven.compiler.source>
+        <maven.compiler.target>13</maven.compiler.target>
         <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
         <mybatis-starter.version>2.1.1</mybatis-starter.version>
@@ -30,6 +30,7 @@
         <knife4j-starter.version>2.0.1</knife4j-starter.version>
         <junit.version>4.11</junit.version>
         <easyexcel.version>2.1.6</easyexcel.version>
+        <hutool.version>5.1.2</hutool.version>
     </properties>
 
     <dependencyManagement>
