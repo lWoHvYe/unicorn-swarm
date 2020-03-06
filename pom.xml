@@ -13,6 +13,7 @@
     <url>http://www.example.com</url>
 
     <properties>
+        <java.version>13</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.13</maven.compiler.source>
         <maven.compiler.target>1.13</maven.compiler.target>
@@ -145,4 +146,8 @@
             </resource>
         </resources>
     </build>
+    <!--添加子模块-->
+    <modules>
+        <module>spring-cloud-lwohvye-api</module>
+    </modules>
 </project>
