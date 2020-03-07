@@ -3,42 +3,68 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.5.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <!--        <groupId>org.springframework.boot</groupId>-->
+        <!--        <artifactId>spring-boot-starter-parent</artifactId>-->
+        <!--        <version>2.2.5.RELEASE</version>-->
+        <!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+        <artifactId>spring-cloud-lwohvye</artifactId>
+        <groupId>com.lwohvye.springcloud</groupId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>com.lwohvye.springcloud</groupId>
     <artifactId>spring-cloud-lwohvye-consumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-cloud-lwohvye-consumer</name>
-    <description>Project Consumer</description>
+    <description>Service Consumer</description>
 
-    <properties>
-        <java.version>13</java.version>
-        <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
-    </properties>
+    <!--    <properties>-->
+    <!--        <java.version>13</java.version>-->
+    <!--        <spring-cloud.version>Hoxton.SR1</spring-cloud.version>-->
+    <!--    </properties>-->
 
     <dependencies>
+        <!--引入api层-->
+        <dependency>
+            <groupId>com.lwohvye.springcloud</groupId>
+            <artifactId>spring-cloud-lwohvye-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!--web-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!-- Ribbon相关 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
         </dependency>
-
+        <!--shiro整合springboot-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring-boot-web-starter</artifactId>
+        </dependency>
+        <!--redis相关-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!--shiro与redis整合-->
+        <dependency>
+        <groupId>org.crazycake</groupId>
+        <artifactId>shiro-redis</artifactId>
+        </dependency>
+        <!--热部署-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+        <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -57,25 +83,25 @@
         </dependency>
     </dependencies>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <!--    <dependencyManagement>-->
+    <!--        <dependencies>-->
+    <!--            <dependency>-->
+    <!--                <groupId>org.springframework.cloud</groupId>-->
+    <!--                <artifactId>spring-cloud-dependencies</artifactId>-->
+    <!--                <version>${spring-cloud.version}</version>-->
+    <!--                <type>pom</type>-->
+    <!--                <scope>import</scope>-->
+    <!--            </dependency>-->
+    <!--        </dependencies>-->
+    <!--    </dependencyManagement>-->
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+    <!--    <build>-->
+    <!--        <plugins>-->
+    <!--            <plugin>-->
+    <!--                <groupId>org.springframework.boot</groupId>-->
+    <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+    <!--            </plugin>-->
+    <!--        </plugins>-->
+    <!--    </build>-->
 
 </project>

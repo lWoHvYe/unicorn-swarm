@@ -1,4 +1,4 @@
-package com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util;
+package com.lwohvye.springcloud.springcloudlwohvyeconsumer.common.util;
 
 import lombok.extern.slf4j.Slf4j;
 

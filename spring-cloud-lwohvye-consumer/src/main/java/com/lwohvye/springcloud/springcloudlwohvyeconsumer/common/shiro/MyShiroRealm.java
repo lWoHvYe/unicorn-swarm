@@ -1,9 +1,8 @@
-package com.lwohvye.springcloud.springcloudlwohvyeprovider.common.shiro;
+package com.lwohvye.springcloud.springcloudlwohvyeconsumer.common.shiro;
 
 import com.lwohvye.springcloud.springcloudlwohvyeapi.common.util.DateTimeUtil;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.User;
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.VerifyCodeUtils;
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.service.SysUserService;
+import com.lwohvye.springcloud.springcloudlwohvyeconsumer.common.util.VerifyCodeUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;

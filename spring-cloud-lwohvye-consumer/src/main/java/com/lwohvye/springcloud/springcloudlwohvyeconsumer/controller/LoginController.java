@@ -1,14 +1,13 @@
-package com.lwohvye.springcloud.springcloudlwohvyeprovider.controller;
+package com.lwohvye.springcloud.springcloudlwohvyeconsumer.controller;
 
 import com.lwohvye.springcloud.springcloudlwohvyeapi.common.util.DateTimeUtil;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.common.util.HttpContextUtil;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.UserLog;
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.shiro.CaptchaEmptyException;
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.shiro.CaptchaErrorException;
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.shiro.CaptchaExpireException;
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.shiro.CaptchaToken;
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.VerifyCodeUtils;
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.service.UserLogService;
+import com.lwohvye.springcloud.springcloudlwohvyeconsumer.common.shiro.CaptchaEmptyException;
+import com.lwohvye.springcloud.springcloudlwohvyeconsumer.common.shiro.CaptchaErrorException;
+import com.lwohvye.springcloud.springcloudlwohvyeconsumer.common.shiro.CaptchaExpireException;
+import com.lwohvye.springcloud.springcloudlwohvyeconsumer.common.shiro.CaptchaToken;
+import com.lwohvye.springcloud.springcloudlwohvyeconsumer.common.util.VerifyCodeUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;

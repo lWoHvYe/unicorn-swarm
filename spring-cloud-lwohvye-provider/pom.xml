@@ -75,16 +75,6 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
         </dependency>
-        <!--shiro整合springboot-->
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-spring-boot-web-starter</artifactId>
-        </dependency>
-        <!--shiro与redis整合-->
-        <dependency>
-            <groupId>org.crazycake</groupId>
-            <artifactId>shiro-redis</artifactId>
-        </dependency>
         <!--整合solr-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

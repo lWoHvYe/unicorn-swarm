@@ -1,8 +1,8 @@
-package com.lwohvye.springcloud.springcloudlwohvyeprovider.config;
+package com.lwohvye.springcloud.springcloudlwohvyeconsumer.config;
 
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.shiro.CaptchaFormAuthenticationFilter;
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.shiro.KickoutSessionControlFilter;
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.shiro.MyShiroRealm;
+import com.lwohvye.springcloud.springcloudlwohvyeconsumer.common.shiro.CaptchaFormAuthenticationFilter;
+import com.lwohvye.springcloud.springcloudlwohvyeconsumer.common.shiro.KickoutSessionControlFilter;
+import com.lwohvye.springcloud.springcloudlwohvyeconsumer.common.shiro.MyShiroRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.mgt.SessionsSecurityManager;

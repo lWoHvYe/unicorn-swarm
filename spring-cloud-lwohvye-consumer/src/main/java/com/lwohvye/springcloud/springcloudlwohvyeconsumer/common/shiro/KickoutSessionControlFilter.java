@@ -1,4 +1,4 @@
-package com.lwohvye.springcloud.springcloudlwohvyeprovider.common.shiro;
+package com.lwohvye.springcloud.springcloudlwohvyeconsumer.common.shiro;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.User;
