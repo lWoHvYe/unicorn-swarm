@@ -3,6 +3,7 @@ package com.lwohvye.springcloud.springcloudlwohvyeapi.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@ToString
 @Entity
 @Table(name = "role")
 public class Role implements Serializable {
@@ -27,7 +29,7 @@ public class Role implements Serializable {
     private Boolean available = Boolean.FALSE;//是否可用
 
 
-    @JsonIgnore
+//    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)//单向立即加载
     // 设置关联表、关联字段(主键)及副表的关联字段(主键)
     @JoinTable(name = "role_permission", joinColumns = {@JoinColumn(name = "role_id")}, inverseJoinColumns = {@JoinColumn(name = "permission_id")})

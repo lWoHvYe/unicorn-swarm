@@ -12,9 +12,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.validation.Valid;
@@ -143,6 +141,11 @@ public class UserController {
 //        jsonObject.put("result", "success");
 //        return jsonObject.toJSONString();
         return new ResultModel<>(sysUserService.updateByPrimaryKeySelective(user));
+    }
+
+    @GetMapping(value = "/findLoginUser/{username}")
+    public User findLoginUser(@PathVariable("username") String username){
+        return sysUserService.findLoginUser(username);
     }
 
     @ApiIgnore

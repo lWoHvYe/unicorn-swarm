@@ -23,7 +23,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class Cnarea2018Controller_Consumer {
 
-    private static final String REST_URL_PREFIX = "http://lwohvye-provider";
+    private static final String REST_URL_PREFIX = "http://LWOHVYE-PROVIDER";
 
     /**
      * 使用 使用restTemplate访问restful接口非常的简单

@@ -1,5 +1,7 @@
 package com.lwohvye.springcloud.springcloudlwohvyeconsumer.common.shiro;
 
+import cn.hutool.json.JSONObject;
+import cn.hutool.json.JSONUtil;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.common.util.DateTimeUtil;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.User;
 import com.lwohvye.springcloud.springcloudlwohvyeconsumer.common.util.VerifyCodeUtils;
@@ -13,13 +15,18 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+import org.springframework.web.client.RestTemplate;
 
 //实现AuthorizingRealm接口用户认证
 @Slf4j
 public class MyShiroRealm extends AuthorizingRealm {
 
+//    @Autowired
+//    private SysUserService sysUserService;
     @Autowired
-    private SysUserService sysUserService;
+    private RestTemplate restTemplate;
+
+    private static final String REST_URL_PREFIX = "http://LWOHVYE-PROVIDER";
 
     /**
      * @return org.apache.shiro.authz.AuthorizationInfo
@@ -87,7 +94,9 @@ public class MyShiroRealm extends AuthorizingRealm {
 //          获取用户名
             var username = ((CaptchaToken) authenticationToken).getUsername();
             //            根据用户名获取用户信息
-            var user = sysUserService.findLoginUser(username);
+            String url = REST_URL_PREFIX+"/user/findLoginUser/"+username;
+            var user = restTemplate.getForObject(url, User.class);
+//            var user = sysUserService.findLoginUser(username);
 //            用户不存在，抛出相应异常
             if (user == null)
                 throw new UnknownAccountException();

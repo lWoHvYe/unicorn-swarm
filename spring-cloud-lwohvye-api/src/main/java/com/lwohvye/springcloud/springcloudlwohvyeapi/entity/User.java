@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.common.annotation.PhoneNumber;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -12,6 +13,7 @@ import java.io.Serializable;
 
 @Getter
 @Setter
+@ToString
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
@@ -27,10 +29,10 @@ public class User implements Serializable {
     private String username;
     private String name;//昵称
     //    从json串中移除密码和盐
-    @JsonIgnore
+//    @JsonIgnore
     @NotBlank(message = "密码不可为空")
     private String password;
-    @JsonIgnore
+//    @JsonIgnore
     private String salt;//加密密码的盐
     private byte state;//用户状态
     //      手机号不可为空且需符合规则
@@ -40,7 +42,7 @@ public class User implements Serializable {
 
     //    一个用户对应一个角色，一个角色对应多个用户，用户是Many端
     @Transient//配置字段不被持久化，即不与数据库字段映射
-    @JsonIgnore
+//    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)//配置单向立即加载
     @JoinColumn(name = "role_id")
     private Role roles;

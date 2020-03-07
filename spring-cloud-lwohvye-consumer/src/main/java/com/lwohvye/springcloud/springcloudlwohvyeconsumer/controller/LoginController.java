@@ -30,8 +30,8 @@ import java.util.Map;
 @Controller
 public class LoginController {
 
-    @Autowired
-    private UserLogService userLogService;
+//    @Autowired
+//    private UserLogService userLogService;
 
     @ApiIgnore
     @RequestMapping(value = {"/", "/index"}, method = {RequestMethod.GET, RequestMethod.POST})
@@ -95,7 +95,7 @@ public class LoginController {
         log.setIpAddr(ip);
 //        设置执行结果，只记录登陆成功的
         log.setActResult(msg);
-        userLogService.insertSelective(log);// 添加日志记录
+//        userLogService.insertSelective(log);// 添加日志记录
 
         map.put("msg", msg);
         return "index";

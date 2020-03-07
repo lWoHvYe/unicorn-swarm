@@ -27,11 +27,22 @@
             <groupId>com.lwohvye.springcloud</groupId>
             <artifactId>spring-cloud-lwohvye-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>pagehelper-spring-boot-starter</artifactId>
+                    <groupId>com.github.pagehelper</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!--web-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--部分页面相关-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <!-- Ribbon相关 -->
         <dependency>
@@ -41,6 +52,10 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
         <!--shiro整合springboot-->
         <dependency>
@@ -54,8 +69,8 @@
         </dependency>
         <!--shiro与redis整合-->
         <dependency>
-        <groupId>org.crazycake</groupId>
-        <artifactId>shiro-redis</artifactId>
+            <groupId>org.crazycake</groupId>
+            <artifactId>shiro-redis</artifactId>
         </dependency>
         <!--热部署-->
         <dependency>
