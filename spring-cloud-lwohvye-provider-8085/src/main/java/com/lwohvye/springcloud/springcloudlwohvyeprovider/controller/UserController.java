@@ -13,7 +13,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.annotations.ApiIgnore;
 
 import javax.validation.Valid;
 
@@ -26,17 +25,6 @@ public class UserController {
 
     @Autowired
     private SysUserService sysUserService;
-
-    /**
-     * 用户查询.
-     *
-     * @return
-     */
-    @ApiIgnore
-    @RequestMapping("/getUser")
-    public String getUser() {
-        return "userInfo";
-    }
 
     /**
      * @return com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel
@@ -52,27 +40,17 @@ public class UserController {
     })
 //    配置在api中不显示的参数,暂未生效
     @ApiOperationSupport(ignoreParameters = {"pageData", "totalCount", "totalPages"})
-    @RequestMapping(value = "/findUser", method = {RequestMethod.GET, RequestMethod.POST})
-    public ResultModel<PageUtil<User>> list(String username, PageUtil<User> pageUtil) {
+    @PostMapping(value = "/list")
+    public ResultModel<PageUtil<User>> list(@RequestParam("username") String username, @RequestParam("order") String order,
+                                            @RequestParam("page") int page, @RequestParam("pageSize") int pageSize) {
 //        JSONObject jsonObject = new JSONObject();
+        var pageUtil = new PageUtil<User>(page, pageSize, order);
 //        查询列表
         return new ResultModel<>(sysUserService.findUser(username, pageUtil));
 //        jsonObject.put("result", "success");
 //        jsonObject.put("list", pageUtil);
 //        return jsonObject.toJSONString();
 //        return pageUtil;
-    }
-
-
-    /**
-     * 用户添加;
-     *
-     * @return
-     */
-    @ApiIgnore
-    @RequestMapping("/addUser")
-    public String addUser() {
-        return "addUser";
     }
 
     /**
@@ -85,24 +63,13 @@ public class UserController {
     @LogAnno(operateType = "添加用户")
     @ApiOperation(value = "添加新用户", notes = "添加新用户，包含用户的授权")
     @ApiOperationSupport(ignoreParameters = {"roles"})
-    @RequestMapping(value = "/saveUser", method = {RequestMethod.GET, RequestMethod.POST})
-    public ResultModel<Integer> saveUser(@Valid User user) {
+    @PostMapping(value = "/add")
+    public ResultModel<Integer> add(@Valid User user) {
 //        JSONObject jsonObject = new JSONObject();
 //        sysUserService.saveUser(user);
 //        jsonObject.put("result", "success");
 //        return jsonObject.toJSONString();
         return new ResultModel<>(sysUserService.insertSelective(user));
-    }
-
-    /**
-     * 用户删除;
-     *
-     * @return java.lang.String
-     */
-    @ApiIgnore
-    @RequestMapping("/delUser")
-    public String delUser() {
-        return "deleteUser";
     }
 
     /**
@@ -115,8 +82,8 @@ public class UserController {
     @LogAnno(operateType = "删除用户")
     @ApiOperation(value = "删除指定用户", notes = "根据用户的id删除对应的用户与权限")
     @ApiImplicitParam(name = "uid", value = "用户ID", required = true, dataType = "Long")
-    @RequestMapping(value = "/deleteUser", method = {RequestMethod.GET, RequestMethod.POST})
-    public ResultModel<Integer> deleteUser(Long uid) {
+    @GetMapping(value = "/delete/{uid}")
+    public ResultModel<Integer> delete(@PathVariable("uid") Long uid) {
 //        JSONObject jsonObject = new JSONObject();
 //        sysUserService.deleteUser(user);
 //        jsonObject.put("result", "success");
@@ -134,8 +101,8 @@ public class UserController {
     @LogAnno(operateType = "修改用户信息")
     @ApiOperation(value = "修改用户信息", notes = "根据用户id修改用户信息，包含部分信息修改。用户名username不可修改")
     @ApiOperationSupport(ignoreParameters = {"roles"})
-    @RequestMapping(value = "/updateUser", method = {RequestMethod.GET, RequestMethod.POST})
-    public ResultModel<Integer> updateUser(@Valid User user) {
+    @PostMapping(value = "/update")
+    public ResultModel<Integer> update(@Valid User user) {
 //        JSONObject jsonObject = new JSONObject();
 //        sysUserService.updateByPrimaryKeySelective(user);
 //        jsonObject.put("result", "success");
@@ -144,15 +111,8 @@ public class UserController {
     }
 
     @GetMapping(value = "/findLoginUser/{username}")
-    public User findLoginUser(@PathVariable("username") String username){
+    public User findLoginUser(@PathVariable("username") String username) {
         return sysUserService.findLoginUser(username);
-    }
-
-    @ApiIgnore
-    @RequestMapping("/testRole")
-//    限定只有admin角色可以访问
-    public String testRole() {
-        return "success";
     }
 
 }

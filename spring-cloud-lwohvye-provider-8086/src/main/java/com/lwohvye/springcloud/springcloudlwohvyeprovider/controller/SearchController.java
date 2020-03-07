@@ -85,7 +85,7 @@ public class SearchController {
 //            设置结果集
             pageUtil.setPageData(list);
 //            设置当前页
-            pageUtil.setCurrentPage(currentPage);
+            pageUtil.setPage(currentPage);
 //            设置每页记录数
             pageUtil.setPageSize(limit);
 //            设置总记录数

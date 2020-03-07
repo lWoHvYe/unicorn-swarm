@@ -19,7 +19,7 @@ public class ConfigBean //boot -->spring   applicationContext.xml --- @Configura
 		return new RestTemplate();
 	}
 	
-	@Bean
+	@Bean//配置负载均衡算法
 	public IRule myRule()
 	{
 		//return new RoundRobinRule();

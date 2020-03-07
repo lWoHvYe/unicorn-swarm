@@ -18,7 +18,7 @@ import javax.validation.Valid;
 @Validated
 //RestController相当于@Controller+@ResponseBody
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/consumer/user")
 public class UserController_Consumer {
 
     @Autowired
@@ -33,8 +33,7 @@ public class UserController_Consumer {
      */
     @ApiOperation(value = "获取用户列表", notes = "获取用户列表，可以通过用户名模糊查询，包含PageUtil分页")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "username", value = "用户名称", dataType = "String"),
-            @ApiImplicitParam(name = "pageUtil", value = "分页相关实体类", dataType = "PageUtil")
+            @ApiImplicitParam(name = "username", value = "用户名称", dataType = "String")
     })
 //    配置在api中不显示的参数,暂未生效
     @ApiOperationSupport(ignoreParameters = {"pageData", "totalCount", "totalPages"})
