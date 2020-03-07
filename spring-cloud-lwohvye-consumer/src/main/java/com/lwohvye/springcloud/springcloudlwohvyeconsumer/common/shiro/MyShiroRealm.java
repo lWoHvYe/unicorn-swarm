@@ -1,7 +1,5 @@
 package com.lwohvye.springcloud.springcloudlwohvyeconsumer.common.shiro;
 
-import cn.hutool.json.JSONObject;
-import cn.hutool.json.JSONUtil;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.common.util.DateTimeUtil;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.User;
 import com.lwohvye.springcloud.springcloudlwohvyeconsumer.common.util.VerifyCodeUtils;
