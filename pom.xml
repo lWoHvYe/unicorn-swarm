@@ -152,6 +152,17 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <delimiters>
+                        <delimiter>$</delimiter>
+                    </delimiters>
+                </configuration>
+            </plugin>
+        </plugins>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -163,5 +174,7 @@
     <modules>
         <module>spring-cloud-lwohvye-api</module>
         <module>spring-cloud-lwohvye-provider</module>
+        <module>spring-cloud-lwohvye-consumer</module>
+        <module>spring-cloud-lwohvye-eureka</module>
     </modules>
 </project>
