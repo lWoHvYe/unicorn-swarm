@@ -3,7 +3,6 @@ package com.lwohvye.springcloud.springcloudlwohvyeprovider.controller;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.BloomFilterHelper;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.RedisUtil;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.service.Cnarea2018Service;
-import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/bloomFilter")
 //限定该类只有admin角色可以访问
-@RequiresRoles("admin")
 public class BloomFilterController {
 
     @Autowired

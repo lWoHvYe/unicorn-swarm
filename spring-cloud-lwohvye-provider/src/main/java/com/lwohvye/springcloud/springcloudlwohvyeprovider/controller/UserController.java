@@ -10,8 +10,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,7 +36,6 @@ public class UserController {
      */
     @ApiIgnore
     @RequestMapping("/getUser")
-    @RequiresPermissions("user:view")//权限管理;
     public String getUser() {
         return "userInfo";
     }
@@ -58,7 +55,6 @@ public class UserController {
 //    配置在api中不显示的参数,暂未生效
     @ApiOperationSupport(ignoreParameters = {"pageData", "totalCount", "totalPages"})
     @RequestMapping(value = "/findUser", method = {RequestMethod.GET, RequestMethod.POST})
-    @RequiresPermissions("user:view")
     public ResultModel<PageUtil<User>> list(String username, PageUtil<User> pageUtil) {
 //        JSONObject jsonObject = new JSONObject();
 //        查询列表
@@ -77,7 +73,6 @@ public class UserController {
      */
     @ApiIgnore
     @RequestMapping("/addUser")
-    @RequiresPermissions("user:add")//权限管理;
     public String addUser() {
         return "addUser";
     }
@@ -93,7 +88,6 @@ public class UserController {
     @ApiOperation(value = "添加新用户", notes = "添加新用户，包含用户的授权")
     @ApiOperationSupport(ignoreParameters = {"roles"})
     @RequestMapping(value = "/saveUser", method = {RequestMethod.GET, RequestMethod.POST})
-    @RequiresPermissions("user:add")
     public ResultModel<Integer> saveUser(@Valid User user) {
 //        JSONObject jsonObject = new JSONObject();
 //        sysUserService.saveUser(user);
@@ -109,7 +103,6 @@ public class UserController {
      */
     @ApiIgnore
     @RequestMapping("/delUser")
-    @RequiresPermissions("user:del")//权限管理;
     public String delUser() {
         return "deleteUser";
     }
@@ -125,7 +118,6 @@ public class UserController {
     @ApiOperation(value = "删除指定用户", notes = "根据用户的id删除对应的用户与权限")
     @ApiImplicitParam(name = "uid", value = "用户ID", required = true, dataType = "Long")
     @RequestMapping(value = "/deleteUser", method = {RequestMethod.GET, RequestMethod.POST})
-    @RequiresPermissions("user:del")
     public ResultModel<Integer> deleteUser(Long uid) {
 //        JSONObject jsonObject = new JSONObject();
 //        sysUserService.deleteUser(user);
@@ -145,7 +137,6 @@ public class UserController {
     @ApiOperation(value = "修改用户信息", notes = "根据用户id修改用户信息，包含部分信息修改。用户名username不可修改")
     @ApiOperationSupport(ignoreParameters = {"roles"})
     @RequestMapping(value = "/updateUser", method = {RequestMethod.GET, RequestMethod.POST})
-    @RequiresPermissions("user:update")
     public ResultModel<Integer> updateUser(@Valid User user) {
 //        JSONObject jsonObject = new JSONObject();
 //        sysUserService.updateByPrimaryKeySelective(user);
@@ -157,7 +148,6 @@ public class UserController {
     @ApiIgnore
     @RequestMapping("/testRole")
 //    限定只有admin角色可以访问
-    @RequiresRoles("admin")
     public String testRole() {
         return "success";
     }

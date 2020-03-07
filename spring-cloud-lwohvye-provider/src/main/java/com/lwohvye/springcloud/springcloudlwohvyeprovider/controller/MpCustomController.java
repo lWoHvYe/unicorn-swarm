@@ -9,7 +9,6 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.NonNull;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,7 +39,6 @@ public class MpCustomController {
      */
     @ApiOperation(value = "获取客户列表", notes = "获取客户列表，暂不提供分页及搜索")
     @GetMapping("/list")
-    @RequiresPermissions("custom:view")
     public ResultModel<List<MpCustomEntity>> list() {
 //        var json = new JSONObject();
 //        var list = mpCustomService.list();
@@ -66,7 +64,6 @@ public class MpCustomController {
             @ApiImplicitParam(name = "status", value = "企业状态", dataType = "Integer", defaultValue = "1")
     })
     @PostMapping("/save")
-    @RequiresPermissions("custom:add")
     public ResultModel<MpCustomEntity> save(MpCustomEntity mpCustomEntity) {
 //        var json = new JSONObject();
 //        mpCustomService.save(mpCustomEntity);
@@ -106,7 +103,6 @@ public class MpCustomController {
     @ApiOperation(value = "删除客户信息", notes = "根据客户id，删除客户信息")
     @ApiImplicitParam(name = "customId", value = "客户编号", required = true, dataType = "Integer")
     @GetMapping("/delete")
-    @RequiresPermissions("custom:del")
     public ResultModel<Integer> delete(@NonNull int customId) {
 //        var json = new JSONObject();
 //        mpCustomService.delete(customId);

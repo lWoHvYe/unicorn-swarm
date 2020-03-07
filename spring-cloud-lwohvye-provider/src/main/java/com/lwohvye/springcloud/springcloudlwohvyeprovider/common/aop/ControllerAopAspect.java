@@ -2,7 +2,7 @@ package com.lwohvye.springcloud.springcloudlwohvyeprovider.common.aop;
 
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shiro.authz.UnauthorizedException;
+//import org.apache.shiro.authz.UnauthorizedException;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -55,10 +55,10 @@ public class ControllerAopAspect {
             result.setCode(ResultModel.SQL_ERROR_CODE);
         }
 //        用户权限不足
-        if (throwable instanceof UnauthorizedException) {
-            result.setMsg(ResultModel.NEED_PERMISSION_MSG);
-            result.setCode(ResultModel.NEED_PERMISSION);
-        }
+//        if (throwable instanceof UnauthorizedException) {
+//            result.setMsg(ResultModel.NEED_PERMISSION_MSG);
+//            result.setCode(ResultModel.NEED_PERMISSION);
+//        }
         return result;
     }
 }
