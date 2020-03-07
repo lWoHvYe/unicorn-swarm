@@ -181,6 +181,7 @@
         <module>spring-cloud-lwohvye-provider-8086</module>
         <!--consumer-->
         <module>spring-cloud-lwohvye-consumer</module>
+        <module>spring-cloud-lwohvye-consumer-feign</module>
         <!--eureka-->
         <module>spring-cloud-lwohvye-eureka-7001</module>
         <module>spring-cloud-lwohvye-eureka-7002</module>

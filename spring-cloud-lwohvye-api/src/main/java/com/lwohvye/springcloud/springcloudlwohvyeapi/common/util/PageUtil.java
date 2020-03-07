@@ -27,7 +27,7 @@ public class PageUtil<T> implements Serializable {
     //  查询数据集合
     private List<T> pageData;
     //	页码
-    private Integer currentPage = 1;
+    private Integer page = 1;
     //  每页记录数
     private Integer pageSize = 10;
     //  总记录数
@@ -49,12 +49,17 @@ public class PageUtil<T> implements Serializable {
     public PageUtil() {
     }
 
-
-    private int obtPageCount() {
-        if (this.totalCount % this.pageSize == 0) {
-            return this.totalCount / this.pageSize;
-        }
-        return this.totalCount / this.pageSize + 1;
+    /**
+     * @return
+     * @description 处理分页参数的构造函数
+     * @params [page, pageSize, order]
+     * @author Hongyan Wang
+     * @date 2020/3/7 23:09
+     */
+    public PageUtil(Integer page, Integer pageSize, String order) {
+        this.page = page;
+        this.pageSize = pageSize;
+        this.order = order;
     }
 
     /**
@@ -68,6 +73,13 @@ public class PageUtil<T> implements Serializable {
         this.pageData = pageData;
         this.totalCount = totalCount;
         this.totalPages = obtPageCount();
+    }
+
+    private int obtPageCount() {
+        if (this.totalCount % this.pageSize == 0) {
+            return this.totalCount / this.pageSize;
+        }
+        return this.totalCount / this.pageSize + 1;
     }
 
     public void setPageEntity(Page<T> pageEntity) {
@@ -120,50 +132,50 @@ public class PageUtil<T> implements Serializable {
         Pageable pageable;
         if (StringUtils.isEmpty(order)) {
 //           未传排序字段则使用默认排序
-            pageable = PageRequest.of(currentPage - 1, pageSize);
+            pageable = PageRequest.of(page - 1, pageSize);
         } else {
 //        创建sort,使用静态方法创建
             var sort = Sort.by(Sort.Direction.DESC, order);
 //        Sort.Order.by(order);
 //        创建pageable,传入页码、每页记录数和排序字段
-            pageable = PageRequest.of(currentPage - 1, pageSize, sort);
+            pageable = PageRequest.of(page - 1, pageSize, sort);
         }
         return pageable;
     }
 
     //  是否是首页
     public boolean isFirst() {
-        return (this.currentPage == 1) || (this.totalCount == 0);
+        return (this.page == 1) || (this.totalCount == 0);
     }
 
     //  是否是尾页
     public boolean isLast() {
-        return (this.totalCount == 0) || (this.currentPage >= obtPageCount());
+        return (this.totalCount == 0) || (this.page >= obtPageCount());
     }
 
     //  是否有下一页
     public boolean isHasNext() {
-        return this.currentPage < obtPageCount();
+        return this.page < obtPageCount();
     }
 
     //  是否有上一页
     public boolean isHasPrev() {
-        return this.currentPage > 1;
+        return this.page > 1;
     }
 
     //  下一页页码
     public Integer getNextPage() {
-        if (this.currentPage >= obtPageCount()) {
+        if (this.page >= obtPageCount()) {
             return obtPageCount();
         }
-        return this.currentPage + 1;
+        return this.page + 1;
     }
 
     //  上一页页码
     public Integer getPrevPage() {
-        if (this.currentPage <= 1) {
+        if (this.page <= 1) {
             return 1;
         }
-        return this.currentPage - 1;
+        return this.page - 1;
     }
 }
