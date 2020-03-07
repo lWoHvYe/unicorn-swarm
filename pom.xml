@@ -173,8 +173,13 @@
     </build>
     <!--添加子模块-->
     <modules>
+        <!--api-->
         <module>spring-cloud-lwohvye-api</module>
-        <module>spring-cloud-lwohvye-provider</module>
+        <!--provider-->
+        <module>spring-cloud-lwohvye-provider-8084</module>
+        <module>spring-cloud-lwohvye-provider-8085</module>
+        <module>spring-cloud-lwohvye-provider-8086</module>
+        <!--consumer-->
         <module>spring-cloud-lwohvye-consumer</module>
         <!--eureka-->
         <module>spring-cloud-lwohvye-eureka-7001</module>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lwohvye.springcloud.springcloudlwohvyeprovider.dao.master.MasterUserLogMapper">
+    <resultMap id="BaseResultMap" type="com.lwohvye.springcloud.springcloudlwohvyeapi.entity.UserLog">
+        <!--@mbg.generated-->
+        <!--@Table user_log-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="act_type" jdbcType="VARCHAR" property="actType"/>
+        <result column="act_time" jdbcType="TIMESTAMP" property="actTime"/>
+        <result column="act_params" jdbcType="VARCHAR" property="actParams"/>
+        <result column="act_result" jdbcType="VARCHAR" property="actResult"/>
+        <result column="ip_addr" jdbcType="VARCHAR" property="ipAddr"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete from user_log
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lwohvye.springcloud.springcloudlwohvyeapi.entity.UserLog"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into user_log (username, act_type, act_time, act_params, act_result, ip_addr)
+        values (#{username,jdbcType=VARCHAR}, #{actType,jdbcType=VARCHAR}, #{actTime,jdbcType=TIMESTAMP},
+        #{actParams,jdbcType=VARCHAR},
+        #{actResult,jdbcType=VARCHAR}, #{ipAddr,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.lwohvye.springcloud.springcloudlwohvyeapi.entity.UserLog" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into user_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                username,
+            </if>
+            <if test="actType != null">
+                act_type,
+            </if>
+            <if test="actTime != null">
+                act_time,
+            </if>
+            <if test="actParams != null and actParams != ''">
+                act_params,
+            </if>
+            <if test="actResult != null and actResult != ''">
+                act_result,
+            </if>
+            <if test="ipAddr != null">
+                ip_addr,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="actType != null">
+                #{actType,jdbcType=VARCHAR},
+            </if>
+            <if test="actTime != null">
+                #{actTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="actParams != null and actParams != ''">
+                #{actParams,jdbcType=VARCHAR},
+            </if>
+            <if test="actResult != null and actResult != ''">
+                #{actResult,jdbcType=VARCHAR},
+            </if>
+            <if test="ipAddr != null">
+                #{ipAddr,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.lwohvye.springcloud.springcloudlwohvyeapi.entity.UserLog">
+        <!--@mbg.generated-->
+        update user_log
+        <set>
+            <if test="username != null">
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="actType != null">
+                act_type = #{actType,jdbcType=VARCHAR},
+            </if>
+            <if test="actTime != null">
+                act_time = #{actTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="actParams != null and actParams != ''">
+                act_params = #{actParams,jdbcType=VARCHAR},
+            </if>
+            <if test="actResult != null and actResult != ''">
+                act_result = #{actResult,jdbcType=VARCHAR},
+            </if>
+            <if test="ipAddr != null">
+                ip_addr = #{ipAddr,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.lwohvye.springcloud.springcloudlwohvyeapi.entity.UserLog">
+        <!--@mbg.generated-->
+        update user_log
+        set username = #{username,jdbcType=VARCHAR},
+        act_type = #{actType,jdbcType=VARCHAR},
+        act_time = #{actTime,jdbcType=TIMESTAMP},
+        act_params = #{actParams,jdbcType=VARCHAR},
+        act_result = #{actResult,jdbcType=VARCHAR},
+        ip_addr = #{ipAddr,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>
