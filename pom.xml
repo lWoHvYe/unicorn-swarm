@@ -176,6 +176,9 @@
         <module>spring-cloud-lwohvye-api</module>
         <module>spring-cloud-lwohvye-provider</module>
         <module>spring-cloud-lwohvye-consumer</module>
-        <module>spring-cloud-lwohvye-eureka</module>
+        <!--eureka-->
+        <module>spring-cloud-lwohvye-eureka-7001</module>
+        <module>spring-cloud-lwohvye-eureka-7002</module>
+        <module>spring-cloud-lwohvye-eureka-7003</module>
     </modules>
 </project>
