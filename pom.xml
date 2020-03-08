@@ -177,6 +177,7 @@
         <module>spring-cloud-lwohvye-config-3344</module>
         <module>spring-cloud-lwohvye-config-client-3355</module>
         <module>spring-cloud-lwohvye-provider-config-client</module>
+        <module>spring-cloud-lwohvye-consumer-config-client</module>
         <!--api-->
         <module>spring-cloud-lwohvye-api</module>
         <!--provider-->

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+错误信息:<h4 th:text="${msg}"/>
+<form action="" method="post">
+    <p>账号:<input type="text" name="username" value="admin"/></p>
+    <p>密码:<input type="text" name="password" value="123456"/></p>
+    <p>验证码:<input type="text" name="captchaCode"/></p>
+    <p>
+    <div>
+        <img id="imgId" src="verify"/>
+    </div>
+    </p>
+    <p><input type="submit" value="登陆"/></p>
+</form>
+</body>
+</html>
