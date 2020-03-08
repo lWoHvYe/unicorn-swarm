@@ -25,3 +25,6 @@
 hs_err_pid*
 
 /.idea/
+/spring-cloud-lwohvye-provider-config-client/mvnw
+/spring-cloud-lwohvye-provider-config-client/mvnw.cmd
+/spring-cloud-lwohvye-provider-config-client/.mvn/

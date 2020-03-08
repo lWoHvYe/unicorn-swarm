@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lwohvye.springcloud.springcloudlwohvyeprovider.dao.slave.SlavePermissionMapper">
+  <resultMap id="BaseResultMap" type="com.lwohvye.springcloud.springcloudlwohvyeapi.entity.Permission">
+    <!--@mbg.generated-->
+    <!--@Table permission-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="available" jdbcType="BIT" property="available" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="parent_ids" jdbcType="VARCHAR" property="parentIds" />
+    <result column="permission_str" jdbcType="VARCHAR" property="permissionStr" />
+    <result column="resource_type" jdbcType="OTHER" property="resourceType" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, available, `name`, parent_id, parent_ids, permission_str, resource_type, url
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from permission
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+</mapper>
