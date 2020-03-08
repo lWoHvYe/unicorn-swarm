@@ -11,7 +11,7 @@
         <groupId>com.lwohvye.springcloud</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>spring-cloud-lwohvye-provider</artifactId>
+    <artifactId>spring-cloud-lwohvye-provider-8085</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-cloud-lwohvye-provider-8085</name>
     <description>Service Provider</description>

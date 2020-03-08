@@ -13,7 +13,7 @@
     </parent>
     <artifactId>spring-cloud-lwohvye-consumer-feign</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-cloud-lwohvye-consumer</name>
+    <name>spring-cloud-lwohvye-consumer-feign</name>
     <description>Service Consumer</description>
 
     <!--    <properties>-->

@@ -13,7 +13,7 @@
     </parent>
     <artifactId>spring-cloud-lwohvye-eureka-7001</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-cloud-lwohvye-eureka</name>
+    <name>spring-cloud-lwohvye-eureka-7001</name>
     <description>Demo project for Spring Boot</description>
 
 <!--    <properties>-->
