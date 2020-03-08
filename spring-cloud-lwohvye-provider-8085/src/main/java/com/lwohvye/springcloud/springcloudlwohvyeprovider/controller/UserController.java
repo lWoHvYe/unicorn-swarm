@@ -33,8 +33,7 @@ public class UserController {
      */
     @ApiOperation(value = "获取用户列表", notes = "获取用户列表，可以通过用户名模糊查询，包含PageUtil分页")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "username", value = "用户名称", dataType = "String"),
-            @ApiImplicitParam(name = "pageUtil", value = "分页相关实体类", dataType = "PageUtil")
+            @ApiImplicitParam(name = "username", value = "用户名称", dataType = "String")
     })
 //    配置在api中不显示的参数,暂未生效
     @ApiOperationSupport(ignoreParameters = {"pageData", "totalCount", "totalPages"})
@@ -43,6 +42,9 @@ public class UserController {
                                             @RequestParam("page") int page, @RequestParam("pageSize") int pageSize) {
 //        JSONObject jsonObject = new JSONObject();
         var pageUtil = new PageUtil<User>(page, pageSize, order);
+//        由于id字段不存在，当传这个时会报异常，异常会被api中的fallbackFactory处理，服务降级
+        if ("id".equals(order))
+            throw new RuntimeException();
 //        查询列表
         return new ResultModel<>(sysUserService.findUser(username, pageUtil));
 //        jsonObject.put("result", "success");

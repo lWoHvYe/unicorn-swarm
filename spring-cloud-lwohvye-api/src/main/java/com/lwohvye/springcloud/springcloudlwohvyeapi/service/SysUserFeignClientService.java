@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 //添加Feign注解
-@FeignClient(value = "LWOHVYE-PROVIDER")
+@FeignClient(value = "LWOHVYE-PROVIDER",fallbackFactory = SysUserFeignClientServiceFallbackFactory.class)
 @RequestMapping("/user")
 public interface SysUserFeignClientService {
 

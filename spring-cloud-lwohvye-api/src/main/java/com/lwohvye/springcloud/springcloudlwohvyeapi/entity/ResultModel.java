@@ -32,6 +32,8 @@ public class ResultModel<T> implements Serializable {
     public static final int NEED_PERMISSION = 1004;
     //    服务调用异常
     public static final int SERVER_ERROR = 1005;
+    //    服务降级
+    public static final int SERVER_DOWN = 1006;
     //    成功返回信息
     public static final String SUCCESS_MSG = "操作成功";
     //    失败返回信息
@@ -42,6 +44,8 @@ public class ResultModel<T> implements Serializable {
     public static final String NEED_PERMISSION_MSG = "操作失败，当前用户权限不足";
     //    服务调用失败，可能是网络问题，或服务异常
     public static final String SERVER_ERROR_MSG = "服务调用失败，请检查网络及服务状态";
+    //    服务降级
+    public static final String SERVER_DOWN_ERROR_MSG = "服务调用失败，服务降级";
     //    返回数据
     private T data;
     //    结果信息
