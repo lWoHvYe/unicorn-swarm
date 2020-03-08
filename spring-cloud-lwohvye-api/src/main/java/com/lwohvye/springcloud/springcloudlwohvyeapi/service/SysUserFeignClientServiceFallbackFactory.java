@@ -24,18 +24,23 @@ public class SysUserFeignClientServiceFallbackFactory implements FallbackFactory
                 var resultModel = new ResultModel<PageUtil<User>>();
                 resultModel.setCode(ResultModel.SERVER_DOWN);
                 resultModel.setMsg(ResultModel.SERVER_DOWN_ERROR_MSG);
-                //  查询列表
                 return resultModel;
             }
 
             @Override
             public ResultModel<Integer> delete(Long uid) {
-                return null;
+                var resultModel = new ResultModel<Integer>();
+                resultModel.setCode(ResultModel.SERVER_DOWN);
+                resultModel.setMsg(ResultModel.SERVER_DOWN_ERROR_MSG);
+                return resultModel;
             }
 
             @Override
             public ResultModel<Integer> add(User record) {
-                return null;
+                var resultModel = new ResultModel<Integer>();
+                resultModel.setCode(ResultModel.SERVER_DOWN);
+                resultModel.setMsg(ResultModel.SERVER_DOWN_ERROR_MSG);
+                return resultModel;
             }
 
             @Override
@@ -45,7 +50,10 @@ public class SysUserFeignClientServiceFallbackFactory implements FallbackFactory
 
             @Override
             public ResultModel<Integer> update(User record) {
-                return null;
+                var resultModel = new ResultModel<Integer>();
+                resultModel.setCode(ResultModel.SERVER_DOWN);
+                resultModel.setMsg(ResultModel.SERVER_DOWN_ERROR_MSG);
+                return resultModel;
             }
 
             @Override
