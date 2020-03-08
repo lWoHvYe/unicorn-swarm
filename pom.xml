@@ -187,5 +187,7 @@
         <module>spring-cloud-lwohvye-eureka-7001</module>
         <module>spring-cloud-lwohvye-eureka-7002</module>
         <module>spring-cloud-lwohvye-eureka-7003</module>
+        <!--zuul-->
+        <module>spring-cloud-lwohvye-zuul-gateway</module>
     </modules>
 </project>
