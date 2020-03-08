@@ -173,6 +173,8 @@
     </build>
     <!--添加子模块-->
     <modules>
+        <!--config-->
+        <module>spring-cloud-lwohvye-config-3344</module>
         <!--api-->
         <module>spring-cloud-lwohvye-api</module>
         <!--provider-->
