@@ -14,7 +14,7 @@
     <artifactId>spring-cloud-lwohvye-zuul-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-cloud-lwohvye-zuul-gateway</name>
-    <description>Zuul GeteWay</description>
+    <description>Zuul Gateway</description>
 
 <!--    <properties>-->
 <!--        <java.version>13</java.version>-->
