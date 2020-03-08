@@ -6,6 +6,7 @@ import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.User;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.annotation.LogAnno;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.service.SysUserService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -33,22 +34,41 @@ public class UserController {
      */
     @ApiOperation(value = "获取用户列表", notes = "获取用户列表，可以通过用户名模糊查询，包含PageUtil分页")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "username", value = "用户名称", dataType = "String"),
-            @ApiImplicitParam(name = "pageUtil", value = "分页相关实体类", dataType = "PageUtil")
+            @ApiImplicitParam(name = "username", value = "用户名称", dataType = "String")
     })
 //    配置在api中不显示的参数,暂未生效
     @ApiOperationSupport(ignoreParameters = {"pageData", "totalCount", "totalPages"})
     @PostMapping(value = "/list")
+    @HystrixCommand(fallbackMethod = "list_hystrix")//指定出异常时调用的方法
     public ResultModel<PageUtil<User>> list(@RequestParam("username") String username, @RequestParam("order") String order,
                                             @RequestParam("page") int page, @RequestParam("pageSize") int pageSize) {
 //        JSONObject jsonObject = new JSONObject();
         var pageUtil = new PageUtil<User>(page, pageSize, order);
+        //这里只做测试，当抛出异常时，会自动调用list_hystrix这个方法，返回调用者数据
+        if ("id".equals(order))
+            throw new RuntimeException();
 //        查询列表
         return new ResultModel<>(sysUserService.findUser(username, pageUtil));
 //        jsonObject.put("result", "success");
 //        jsonObject.put("list", pageUtil);
 //        return jsonObject.toJSONString();
 //        return pageUtil;
+    }
+
+    /**
+     * @return com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel
+     * @description 当服务调用超时时，自动调用该方法，避免服务雪崩，方法的参数和返回值需要一致
+     * @params [username, order, page, pageSize]
+     * @author Hongyan Wang
+     * @date 2020/3/8 11:15
+     */
+    public ResultModel<PageUtil<User>> list_hystrix(@RequestParam("username") String username, @RequestParam("order") String order,
+                                                    @RequestParam("page") int page, @RequestParam("pageSize") int pageSize) {
+        var resultModel = new ResultModel<PageUtil<User>>();
+        resultModel.setCode(ResultModel.SERVER_ERROR);
+        resultModel.setMsg(ResultModel.SERVER_ERROR_MSG);
+//        查询列表
+        return resultModel;
     }
 
     /**
