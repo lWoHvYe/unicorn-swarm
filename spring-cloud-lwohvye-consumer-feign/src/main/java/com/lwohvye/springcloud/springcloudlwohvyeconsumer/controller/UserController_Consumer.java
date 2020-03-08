@@ -2,6 +2,7 @@ package com.lwohvye.springcloud.springcloudlwohvyeconsumer.controller;
 
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.common.util.PageUtil;
+import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.User;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.service.SysUserFeignClientService;
 import io.swagger.annotations.Api;
@@ -38,8 +39,8 @@ public class UserController_Consumer {
 //    配置在api中不显示的参数,暂未生效
     @ApiOperationSupport(ignoreParameters = {"pageData", "totalCount", "totalPages"})
     @PostMapping(value = "/list")
-    public PageUtil<User> list(@RequestParam("username") String username, @RequestParam("order") String order,
-                               @RequestParam("page") int page, @RequestParam("pageSize") int pageSize) {
+    public ResultModel<PageUtil<User>> list(@RequestParam("username") String username, @RequestParam("order") String order,
+                                            @RequestParam("page") int page, @RequestParam("pageSize") int pageSize) {
         return sysUserFeignClientService.list(username, order, page, pageSize);
     }
 
@@ -52,8 +53,8 @@ public class UserController_Consumer {
      */
     @ApiOperation(value = "添加新用户", notes = "添加新用户，包含用户的授权")
     @ApiOperationSupport(ignoreParameters = {"roles"})
-    @PostMapping(value = "/add")
-    public int add(@Valid User user) {
+    @RequestMapping(value = "/add")
+    public ResultModel<Integer> add(@Valid User user) {
         return sysUserFeignClientService.add(user);
     }
 
@@ -67,7 +68,7 @@ public class UserController_Consumer {
     @ApiOperation(value = "删除指定用户", notes = "根据用户的id删除对应的用户与权限")
     @ApiImplicitParam(name = "uid", value = "用户ID", required = true, dataType = "Long")
     @GetMapping(value = "/delete/{uid}")
-    public int delete(@PathVariable("uid") Long uid) {
+    public ResultModel<Integer> delete(@PathVariable("uid") Long uid) {
         return sysUserFeignClientService.delete(uid);
     }
 
@@ -81,7 +82,7 @@ public class UserController_Consumer {
     @ApiOperation(value = "修改用户信息", notes = "根据用户id修改用户信息，包含部分信息修改。用户名username不可修改")
     @ApiOperationSupport(ignoreParameters = {"roles"})
     @PostMapping(value = "/update")
-    public int update(@Valid User user) {
+    public ResultModel<Integer> update(@Valid User user) {
         return sysUserFeignClientService.update(user);
     }
 

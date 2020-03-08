@@ -1,4 +1,4 @@
-package com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util;
+package com.lwohvye.springcloud.springcloudlwohvyeapi.entity;
 
 import lombok.Getter;
 import lombok.Setter;

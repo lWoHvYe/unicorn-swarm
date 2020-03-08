@@ -3,7 +3,7 @@ package com.lwohvye.springcloud.springcloudlwohvyeprovider.controller;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.common.util.PageUtil;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.Role;
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel;
+import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.service.SysRoleService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -23,7 +23,7 @@ public class RoleController {
 
 
     /**
-     * @return com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel
+     * @return com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel
      * @description 获取角色列表
      * @params [role, pageUtil]
      * @author Hongyan Wang
@@ -42,7 +42,7 @@ public class RoleController {
     }
 
     /**
-     * @return com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel<java.lang.Integer>
+     * @return com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel<java.lang.Integer>
      * @description 添加或修改角色
      * @params [role, permissionId]
      * @author Hongyan Wang
@@ -62,7 +62,7 @@ public class RoleController {
 
 
     /**
-     * @return com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel<java.lang.Integer>
+     * @return com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel<java.lang.Integer>
      * @description 删除角色
      * @params [role]
      * @author Hongyan Wang

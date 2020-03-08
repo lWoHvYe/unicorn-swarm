@@ -3,7 +3,7 @@ package com.lwohvye.springcloud.springcloudlwohvyeprovider.controller;
 
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.MpCustomEntity;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.annotation.LogAnno;
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel;
+import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.service.MpCustomService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -31,7 +31,7 @@ public class MpCustomController {
     private MpCustomService mpCustomService;
 
     /**
-     * @return com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel
+     * @return com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel
      * @description 获取列表
      * @params []
      * @author Hongyan Wang
@@ -49,7 +49,7 @@ public class MpCustomController {
     }
 
     /**
-     * @return com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel
+     * @return com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel
      * @description 添加企业信息
      * @params [mpCustomEntity]
      * @author Hongyan Wang
@@ -74,7 +74,7 @@ public class MpCustomController {
     }
 
     /**
-     * @return com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel
+     * @return com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel
      * @description 根据id获取客户信息
      * @params [customId]
      * @author Hongyan Wang
@@ -93,7 +93,7 @@ public class MpCustomController {
     }
 
     /**
-     * @return com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel
+     * @return com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel
      * @description 根据企业id删除企业信息
      * @params [customId]
      * @author Hongyan Wang
@@ -113,7 +113,7 @@ public class MpCustomController {
     }
 
     /**
-     * @return com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel
+     * @return com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel
      * @description 修改客户信息
      * @params [mpCustomEntity]
      * @author Hongyan Wang

@@ -1,6 +1,6 @@
 package com.lwohvye.springcloud.springcloudlwohvyeprovider.common.aop;
 
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel;
+import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel;
 import lombok.extern.slf4j.Slf4j;
 //import org.apache.shiro.authz.UnauthorizedException;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -30,7 +30,7 @@ public class ControllerAopAspect {
      * @author Hongyan Wang
      * @date 2020/1/14 14:24
      */
-    @Pointcut("execution(public com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel *(..))")
+    @Pointcut("execution(public com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel *(..))")
     public void handlerControllerPointcut() {
     }
 

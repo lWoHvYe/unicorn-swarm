@@ -2,6 +2,7 @@ package com.lwohvye.springcloud.springcloudlwohvyeapi.service;
 
 
 import com.lwohvye.springcloud.springcloudlwohvyeapi.common.util.PageUtil;
+import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
@@ -12,20 +13,20 @@ import org.springframework.web.bind.annotation.*;
 public interface SysUserFeignClientService {
 
     @PostMapping("/list")
-    PageUtil<User> list(@RequestParam("username") String username, @RequestParam("order") String order,
-                        @RequestParam("page") int page, @RequestParam("pageSize") int pageSize);
+    ResultModel<PageUtil<User>> list(@RequestParam("username") String username, @RequestParam("order") String order,
+                                     @RequestParam("page") int page, @RequestParam("pageSize") int pageSize);
 
     @GetMapping("/delete/{uid}")
-    int delete(@PathVariable("uid") Long uid);
+    ResultModel<Integer> delete(@PathVariable("uid") Long uid);
 
     @PostMapping("/add")
-    int add(User record);
+    ResultModel<Integer> add(User record);
 
     @GetMapping("/get/{uid}")
     User get(@PathVariable("uid") Long uid);
 
     @PostMapping("/update")
-    int update(User record);
+    ResultModel<Integer> update(User record);
 
     /**
      * @return com.lwohvye.springboot.dubbo.entity.User

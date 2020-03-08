@@ -6,7 +6,7 @@ import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.Cnarea2018;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.annotation.LogAnno;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.BloomFilterHelper;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.RedisUtil;
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel;
+import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.service.Cnarea2018Service;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -42,7 +42,7 @@ public class Cnarea2018Controller {
     private DiscoveryClient client;
 
     /**
-     * @return com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel<java.util.List < com.github.pagehelper.PageInfo < com.lwohvye.springboot.dubbointerface.entity.Cnarea2018>>>
+     * @return com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel<java.util.List < com.github.pagehelper.PageInfo < com.lwohvye.springboot.dubbointerface.entity.Cnarea2018>>>
      * @description 异步测试方法，province为使用逗号分隔的两位的省级区划名
      * @params [province, page, pageSize]
      * @author Hongyan Wang
@@ -76,7 +76,7 @@ public class Cnarea2018Controller {
     }
 
     /**
-     * @return com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel<java.util.List < com.github.pagehelper.PageInfo < com.lwohvye.springboot.dubbointerface.entity.Cnarea2018>>>
+     * @return com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel<java.util.List < com.github.pagehelper.PageInfo < com.lwohvye.springboot.dubbointerface.entity.Cnarea2018>>>
      * @description 单线程模式，用于同多线程对比
      * @params [province, levels, page, pageSize]
      * @author Hongyan Wang

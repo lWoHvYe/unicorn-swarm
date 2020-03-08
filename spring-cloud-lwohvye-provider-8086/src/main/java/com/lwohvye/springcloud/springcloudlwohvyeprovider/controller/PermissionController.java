@@ -3,7 +3,7 @@ package com.lwohvye.springcloud.springcloudlwohvyeprovider.controller;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.common.util.PageUtil;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.Permission;
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel;
+import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.service.SysPermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +21,7 @@ public class PermissionController {
 
 
     /**
-     * @return com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel
+     * @return com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel
      * @description 获取权限列表
      * @params [name, pageUtil]
      * @author Hongyan Wang

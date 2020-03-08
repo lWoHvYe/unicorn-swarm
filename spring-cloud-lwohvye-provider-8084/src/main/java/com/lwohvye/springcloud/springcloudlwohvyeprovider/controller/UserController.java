@@ -4,7 +4,7 @@ import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.common.util.PageUtil;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.User;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.annotation.LogAnno;
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel;
+import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.service.SysUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -13,9 +13,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.annotations.ApiIgnore;
-
-import javax.validation.Valid;
 
 @Api(value = "用户相关操作API")
 @Validated
@@ -28,7 +25,7 @@ public class UserController {
     private SysUserService sysUserService;
 
     /**
-     * @return com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel
+     * @return com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel
      * @description 获取用户列表
      * @params [username, pageUtil]
      * @author Hongyan Wang
@@ -55,7 +52,7 @@ public class UserController {
     }
 
     /**
-     * @return com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel<java.lang.Integer>
+     * @return com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel<java.lang.Integer>
      * @description 添加用户
      * @params [user]
      * @author Hongyan Wang
@@ -65,7 +62,7 @@ public class UserController {
     @ApiOperation(value = "添加新用户", notes = "添加新用户，包含用户的授权")
     @ApiOperationSupport(ignoreParameters = {"roles"})
     @PostMapping(value = "/add")
-    public ResultModel<Integer> add(@Valid User user) {
+    public ResultModel<Integer> add(@RequestBody User user) {
 //        JSONObject jsonObject = new JSONObject();
 //        sysUserService.saveUser(user);
 //        jsonObject.put("result", "success");
@@ -74,7 +71,7 @@ public class UserController {
     }
 
     /**
-     * @return com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel<java.lang.Integer>
+     * @return com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel<java.lang.Integer>
      * @description 删除用户
      * @params [uid]
      * @author Hongyan Wang
@@ -93,7 +90,7 @@ public class UserController {
     }
 
     /**
-     * @return com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel
+     * @return com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel
      * @description 修改用户信息
      * @params [user]
      * @author Hongyan Wang
@@ -103,7 +100,7 @@ public class UserController {
     @ApiOperation(value = "修改用户信息", notes = "根据用户id修改用户信息，包含部分信息修改。用户名username不可修改")
     @ApiOperationSupport(ignoreParameters = {"roles"})
     @PostMapping(value = "/update")
-    public ResultModel<Integer> update(@Valid User user) {
+    public ResultModel<Integer> update(@RequestBody User user) {
 //        JSONObject jsonObject = new JSONObject();
 //        sysUserService.updateByPrimaryKeySelective(user);
 //        jsonObject.put("result", "success");

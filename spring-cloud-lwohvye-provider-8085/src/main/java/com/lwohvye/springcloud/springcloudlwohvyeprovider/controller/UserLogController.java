@@ -6,7 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.common.util.excel.ExcelUtil;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.UserLog;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.listener.UserLogExcelListener;
-import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel;
+import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.service.UserLogService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class UserLogController {
     private UserLogService userLogService;
 
     /**
-     * @return com.lwohvye.springcloud.springcloudlwohvyeprovider.common.util.ResultModel
+     * @return com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel
      * @description 获取日志列表
      * @params [username, searchTime, pages, limits]
      * @author Hongyan Wang
