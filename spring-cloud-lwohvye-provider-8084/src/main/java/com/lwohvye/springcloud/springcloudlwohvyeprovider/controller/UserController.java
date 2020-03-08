@@ -39,7 +39,7 @@ public class UserController {
 //    配置在api中不显示的参数,暂未生效
     @ApiOperationSupport(ignoreParameters = {"pageData", "totalCount", "totalPages"})
     @PostMapping(value = "/list")
-    @HystrixCommand(fallbackMethod = "list_hystrix")//指定出异常时调用的方法
+    @HystrixCommand(fallbackMethod = "list_hystrix")//指定出异常时调用的方法，hystrix主要实现了当短时间多次异常时，将直接走异常方法，即服务熔断
     public ResultModel<PageUtil<User>> list(@RequestParam("username") String username, @RequestParam("order") String order,
                                             @RequestParam("page") int page, @RequestParam("pageSize") int pageSize) {
 //        JSONObject jsonObject = new JSONObject();
