@@ -83,6 +83,8 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/v2/api-docs-ext", "anon");
         filterChainDefinitionMap.put("/doc.html", "anon");
         filterChainDefinitionMap.put("/webjars/**", "anon");
+//        配置总线刷新不被拦截
+        filterChainDefinitionMap.put("/bus/refesh", "anon");
 //        配置登出 具体登出已有shiro内部完成
         filterChainDefinitionMap.put("/logout", "logout");
         filterChainDefinitionMap.put("/login", "anon");

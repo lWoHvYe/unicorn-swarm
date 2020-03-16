@@ -8,3 +8,10 @@ spring:
       profile: dev   #本次访问的配置项
       label: master
       uri: http://localhost:3344  #本微服务启动后先去找3344号服务，通过SpringCloudConfig获取GitHub的服务地址
+
+#暴露监控端点，用于自动更新配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -9,6 +9,11 @@ spring:
       server:
        git:
         uri: git@github.com:lWoHvYe/spring-cloud-lwohvye-config.git  #GitHub上面的git仓库名字
+  rabbitmq: #rabbitmq相关配置，15672是web管理端口，5672是mq访问端口
+    port: 5672
+    host: 192.168.0.145
+    username: guest
+    password: guest
 
 eureka:
   client: #客户端注册进eureka服务列表内
@@ -18,3 +23,10 @@ eureka:
   instance:
     instance-id: lwohvye-spring-cloud-config
     prefer-ip-address: true     #访问路径可以显示IP地址
+
+# 暴露bus刷新配置的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"
