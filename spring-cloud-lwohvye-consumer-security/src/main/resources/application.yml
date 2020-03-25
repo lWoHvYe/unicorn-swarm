@@ -1,10 +1,50 @@
 server:
   port: 8006
+  http2:
+    enabled: true
+  # 设置IO线程数, 它主要执行非阻塞的任务,它们会负责多个连接, 默认设置每个CPU核心一个线程
+  # 不要设置过大，如果过大，启动项目会报错：打开文件数过多
+  undertow:
+    io-threads: 6
+  # 阻塞任务线程池, 当执行类似servlet请求阻塞IO操作, undertow会从这个线程池中取得线程
+  # 它的值设置取决于系统线程执行任务的阻塞系数，默认值是IO线程数*8
+    worker-threads: 48
+  # 以下的配置会影响buffer,这些buffer会用于服务器连接的IO操作,有点类似netty的池化内存管理
+  # 每块buffer的空间大小,越小的空间被利用越充分，不要设置太大，以免影响其他应用，合适即可
+  #server.undertow.buffer-size= 1024
+  # 每个区分配的buffer数量 , 所以pool的大小是buffer-size * buffers-per-region
+  #server.undertow.buffers-per-region= 1024
+  # 是否分配的直接内存(NIO直接分配的堆外内存)
+    direct-buffers: true
+
 spring:
   application:
     name: spring-cloud-security
-  security:
-    user:
-      name: admin
-      password: 123456
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      initial-size: 5
+      max-active: 20
+      max-pool-prepared-statement-per-connection-size: 20
+      max-wait: 6000
+      min-idle: 5
+      pool-prepared-statements: true
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      url: jdbc:mysql://127.0.0.1:3306/spring_boot?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: root
+      validation-query: SELECT 1 FROM DUAL
+      validation-query-timeout: 3000
+#thymeleaf
+  thymeleaf:
+    cache: false
+    mode: HTML
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: com.lwohvye.springcloud.springcloudlwohvyeconsumersecurity.entity
 
