@@ -25,8 +25,8 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    //指定角色为ROLE_admin或ROLE_user才能访问
-    @PreAuthorize(value = "hasAnyRole('admin','user')")
+    //指定需要的角色，hasAuthority没有前缀，角色为admin或user才能访问
+    @PreAuthorize(value = "hasAnyAuthority('admin','user')")
     @RequestMapping("/get")
     public UserDetails getUser() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -36,7 +36,8 @@ public class UserController {
         return userDetails;
     }
 
-    //指定需要角色，因为有公共前缀ROLE_在，角色需为ROLE_admin才行
+    //指定需要角色，hasRole相关有公共前缀ROLE_在，角色需为ROLE_admin才行
+    //根据源码逻辑，hasRole("admin")与hasRole("ROLE_admin")效果一样
     @PreAuthorize(value = "hasRole('admin')")
     @RequestMapping("/list")
     public List<User> list() {
