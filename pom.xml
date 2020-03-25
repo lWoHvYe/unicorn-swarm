@@ -188,6 +188,7 @@
         <module>spring-cloud-lwohvye-consumer</module>
         <module>spring-cloud-lwohvye-consumer-feign</module>
         <module>spring-cloud-lwohvye-consumer-hystrix</module>
+        <module>spring-cloud-lwohvye-consumer-security</module>
         <!--eureka-->
         <module>spring-cloud-lwohvye-eureka-7001</module>
         <module>spring-cloud-lwohvye-eureka-7002</module>

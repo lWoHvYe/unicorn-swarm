@@ -1,0 +1,10 @@
+server:
+  port: 8006
+spring:
+  application:
+    name: spring-cloud-security
+  security:
+    user:
+      name: admin
+      password: 123456
+
