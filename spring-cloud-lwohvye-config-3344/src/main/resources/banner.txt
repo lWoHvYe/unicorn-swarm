@@ -1,5 +1,6 @@
 
 
+
                                                          /*[*/#include<stdio.h>//
                              #include<stdlib.h>//]++++[->++[->+>++++<<]<][(c)2013]
                             #ifndef                                           e//[o
