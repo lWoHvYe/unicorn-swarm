@@ -3,6 +3,8 @@ package com.lwohvye.springcloud.springcloudlwohvyeconsumersecurity.config;
 import com.lwohvye.springcloud.springcloudlwohvyeconsumersecurity.service.impl.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,6 +19,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 //使用@EnableGlobalMethodSecurity(prePostEnabled = true)这个注解，可以开启security的注解，
 // 从而可以在需要控制权限的方法上面使用@PreAuthorize，@PreFilter这些注解。
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
+@Order(2)//ResourceServerConfig 是比 SecurityConfig 的优先级低的
 //继承 WebSecurityConfigurerAdapter 类，并重写它的方法来设置一些web安全的细节
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -37,28 +40,36 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         //super.configure(http);
         http.csrf().disable();
-
-        http.authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("/amchart/**",
-                        "/bootstrap/**",
-                        "/build/**",
-                        "/css/**",
-                        "/dist/**",
-                        "/documentation/**",
-                        "/fonts/**",
-                        "/js/**",
-                        "/pages/**",
-                        "/plugins/**"
-                ).permitAll() //默认不拦截静态资源的url pattern （2）
-                .anyRequest().authenticated().and()
-                .formLogin()
+        http.requestMatchers().antMatchers("/oauth/**", "/login/**", "/logout/**")
+                .and()
+                .authorizeRequests()
+                .antMatchers("/oauth/**").authenticated()
+                .and()
+                .formLogin().permitAll(); //新增login form支持用户登录及授权
+//        http.csrf().disable()
+//                .requestMatchers().antMatchers("/oauth/**").and()
+//                .authorizeRequests()
+//                .antMatchers("/oauth/**").authenticated()
+//                .antMatchers("/").permitAll()
+//                .antMatchers("/amchart/**",
+//                        "/bootstrap/**",
+//                        "/build/**",
+//                        "/css/**",
+//                        "/dist/**",
+//                        "/documentation/**",
+//                        "/fonts/**",
+//                        "/js/**",
+//                        "/pages/**",
+//                        "/plugins/**"
+//                ).permitAll() //默认不拦截静态资源的url pattern （2）
+//                .anyRequest().authenticated().and()
+//                .formLogin()
 //                .loginPage("/login")// 登录url请求路径 (3)
-                .defaultSuccessUrl("/").permitAll().and() // 登录成功跳转路径url(4)
-                .logout().permitAll();
-
-        http.logout().logoutSuccessUrl("/login"); // 退出默认跳转页面 (5)
-
+//                .defaultSuccessUrl("/")// 登录成功跳转路径url(4)
+//                .permitAll().and()
+//                .logout().permitAll()
+//        ;
+//        http.logout().logoutSuccessUrl("/login"); // 退出默认跳转页面 (5)
     }
 
     /**
@@ -89,7 +100,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService()); // （6）
     }
 
-   // 默认不拦截静态资源的url pattern。可以用下面的WebSecurity这个方式跳过静态资源的认证。
+    /**
+     * 不定义没有password grant_type,密码模式需要AuthenticationManager支持
+     *
+     * @return
+     * @throws Exception
+     */
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
+    // 默认不拦截静态资源的url pattern。可以用下面的WebSecurity这个方式跳过静态资源的认证。
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/resourcesDir/**");
     }
