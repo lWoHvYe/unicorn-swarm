@@ -28,7 +28,7 @@
         <shiro-redis.version>3.2.3</shiro-redis.version>
         <springfox.version>2.9.2</springfox.version>
         <knife4j-starter.version>2.0.1</knife4j-starter.version>
-        <junit.version>4.11</junit.version>
+        <junit.version>4.13.1</junit.version>
         <easyexcel.version>2.1.6</easyexcel.version>
         <hutool.version>5.3.5</hutool.version>
     </properties>
