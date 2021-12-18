@@ -10,26 +10,26 @@
 
     <name>spring-cloud-lwohvye-parent</name>
     <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
+    <url>https://www.lwohvye.com</url>
 
     <properties>
         <java.version>15</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
-        <spring-boot.version>2.3.5.RELEASE</spring-boot.version>
-        <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
-        <mybatis-starter.version>2.1.1</mybatis-starter.version>
+        <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
+        <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
+        <mybatis-starter.version>2.2.0</mybatis-starter.version>
         <mysql-connector.version>8.0.19</mysql-connector.version>
-        <lombok.version>1.18.12</lombok.version>
-        <druid-starter.version>1.1.21</druid-starter.version>
-        <pagehelper-starter.version>1.2.13</pagehelper-starter.version>
-        <shiro-starter.version>1.4.2</shiro-starter.version>
-        <shiro-redis.version>3.2.3</shiro-redis.version>
+        <lombok.version>1.18.22</lombok.version>
+        <druid-starter.version>1.2.8</druid-starter.version>
+        <pagehelper-starter.version>1.4.1</pagehelper-starter.version>
+        <shiro-starter.version>1.7.1</shiro-starter.version>
+        <shiro-redis.version>3.3.1</shiro-redis.version>
         <springfox.version>2.9.2</springfox.version>
         <knife4j-starter.version>2.0.1</knife4j-starter.version>
         <junit.version>4.13.1</junit.version>
-        <easyexcel.version>2.1.6</easyexcel.version>
+        <easyexcel.version>3.0.5</easyexcel.version>
         <hutool.version>5.3.5</hutool.version>
     </properties>
 
