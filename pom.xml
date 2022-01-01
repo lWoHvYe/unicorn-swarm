@@ -29,7 +29,8 @@
         <springfox.version>2.9.2</springfox.version>
         <knife4j-starter.version>2.0.1</knife4j-starter.version>
         <junit.version>4.13.1</junit.version>
-        <easyexcel.version>3.0.5</easyexcel.version>
+        <!--3.x系列改动较大，后续再升级-->
+        <easyexcel.version>2.2.11</easyexcel.version>
         <hutool.version>5.3.5</hutool.version>
     </properties>
 
