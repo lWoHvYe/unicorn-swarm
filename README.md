@@ -1,6 +1,7 @@
 # spring-cloud-lwohvye
 Spring Cloud Netflix
 
+基于Spring Boot 2.3.x、Spring Cloud H版
 ### 模块说明
 
 - api 基础Api模块，定义module及部分util
