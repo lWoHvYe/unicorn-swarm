@@ -14,4 +14,8 @@ Spring Cloud Netflix
 - zuul 网关
 - websocket 印象中与配置刷新有关，后续确定
 
-todo: 感觉着feign相关，不应放在api模块，因为该模块还被provider复用，应该放到consumer层才对
+### 部分笔记
+
+- Provider提供Web接口
+- Consumer中Feign使用接口调用映射，当调用失败时进入FallbackFactory
+- 将Feign相关放到api层，是因为在provider和consumer都有用到，在consumer中通过这种方式可能（？）可以调用到其他的consumer实例。这算是一种情况，但Feign是放到provider层还是下沉到api层，后续再考虑考虑
