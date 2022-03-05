@@ -13,3 +13,5 @@ Spring Cloud Netflix
 - hystrix 服务熔断与限流
 - zuul 网关
 - websocket 印象中与配置刷新有关，后续确定
+
+todo: 感觉着feign相关，不应放在api模块，因为该模块还被provider复用，应该放到consumer层才对
