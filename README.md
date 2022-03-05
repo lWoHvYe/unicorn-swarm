@@ -21,6 +21,6 @@ Spring Cloud Netflix
 - Provider提供Web接口
 - Consumer中Feign使用接口调用映射，当调用失败时进入FallbackFactory
 - 将Feign相关放到api层，是因为在provider和consumer都有用到，在provider中通过这种方式可能（？）可以调用到其他的provider实例。这算是一种情况，但Feign是放到consumer层还是下沉到api层，后续再考虑考虑
--Provider和Consumer本身是相对的概念。
+- Provider和Consumer本身是相对的概念。
   - 放到api层的好处是：api由provider侧维护，当consumer需要使用时，只需引入api即可，不必再自行开发Feign及降级逻辑。
   - 可能带来的问题是：在consumer层引入了些不需要的Feign（违背最小依赖），另一方面api侧对Feign的改动，可能对consumer侧产生影响，有一定的不可控，以及不同的consumer侧可能有自己的降级逻辑（这个自己再写个Feign可以解决）。
