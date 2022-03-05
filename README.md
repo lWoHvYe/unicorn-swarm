@@ -18,4 +18,4 @@ Spring Cloud Netflix
 
 - Provider提供Web接口
 - Consumer中Feign使用接口调用映射，当调用失败时进入FallbackFactory
-- 将Feign相关放到api层，是因为在provider和consumer都有用到，在consumer中通过这种方式可能（？）可以调用到其他的consumer实例。这算是一种情况，但Feign是放到provider层还是下沉到api层，后续再考虑考虑
+- 将Feign相关放到api层，是因为在provider和consumer都有用到，在provider中通过这种方式可能（？）可以调用到其他的provider实例。这算是一种情况，但Feign是放到consumer层还是下沉到api层，后续再考虑考虑
