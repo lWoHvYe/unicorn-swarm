@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lwohvye.springcloud</groupId>
@@ -26,7 +25,7 @@
         <pagehelper-starter.version>1.4.1</pagehelper-starter.version>
         <shiro-starter.version>1.7.1</shiro-starter.version>
         <shiro-redis.version>3.3.1</shiro-redis.version>
-        <springfox.version>2.9.2</springfox.version>
+        <springfox.version>2.10.0</springfox.version>
         <knife4j-starter.version>2.0.1</knife4j-starter.version>
         <junit.version>4.13.1</junit.version>
         <!--3.x系列改动较大，后续再升级-->
