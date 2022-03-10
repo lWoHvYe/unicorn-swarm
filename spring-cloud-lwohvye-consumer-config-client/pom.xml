@@ -27,12 +27,12 @@
             <groupId>com.lwohvye.springcloud</groupId>
             <artifactId>spring-cloud-lwohvye-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>pagehelper-spring-boot-starter</artifactId>
-                    <groupId>com.github.pagehelper</groupId>
-                </exclusion>
-            </exclusions>
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>pagehelper-spring-boot-starter</artifactId>-->
+<!--                    <groupId>com.github.pagehelper</groupId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
         </dependency>
         <!--图形化监控-->
         <dependency>

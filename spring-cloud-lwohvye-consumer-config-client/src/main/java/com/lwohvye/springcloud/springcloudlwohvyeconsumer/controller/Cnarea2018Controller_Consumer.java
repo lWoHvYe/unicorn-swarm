@@ -1,5 +1,9 @@
 package com.lwohvye.springcloud.springcloudlwohvyeconsumer.controller;
 
+import com.github.pagehelper.PageInfo;
+import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.Cnarea2018;
+import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel;
+import com.lwohvye.springcloud.springcloudlwohvyeapi.service.Cnarea2018FeignClientService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 
 /**
@@ -32,6 +38,9 @@ public class Cnarea2018Controller_Consumer {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private Cnarea2018FeignClientService cnarea2018FeignClientService;
+
     /**
      * @return String
      * @description 异步测试方法，province为使用逗号分隔的两位的省级区划名
@@ -51,6 +60,13 @@ public class Cnarea2018Controller_Consumer {
         builder.part("pageSize", pageSize);
         MultiValueMap<String, HttpEntity<?>> build = builder.build();
         return restTemplate.postForObject(url, build, String.class);
+    }
+
+    @ApiOperation(value = "根据省名获取下属区划,多线程异步", notes = "多个省名使用逗号分隔")
+    @ApiImplicitParam(name = "levels", value = "查询区划级别，实际可使用下拉选择 0省、直辖市 1市 2区县 3街道办事处 4社区居委会")
+    @PostMapping("/list0")
+    public ResultModel<List<PageInfo<Cnarea2018>>> list0(String province, String levels, int page, int pageSize) {
+        return cnarea2018FeignClientService.list(province, levels, String.valueOf(page), String.valueOf(pageSize));
     }
 
     /**
@@ -73,4 +89,12 @@ public class Cnarea2018Controller_Consumer {
         MultiValueMap<String, HttpEntity<?>> build = builder.build();
         return restTemplate.postForObject(url, build, String.class);
     }
+
+    @ApiOperation(value = "根据省名获取下属区划,单线程模式", notes = "多个省名使用逗号分隔")
+    @ApiImplicitParam(name = "levels", value = "查询区划级别，实际可使用下拉选择 0省、直辖市 1市 2区县 3街道办事处 4社区居委会")
+    @PostMapping("/listSingle0")
+    public ResultModel<List<PageInfo<Cnarea2018>>> listSingle0(String province, String levels, int page, int pageSize) {
+        return cnarea2018FeignClientService.listSingle(province, levels, page, pageSize);
+    }
+
 }

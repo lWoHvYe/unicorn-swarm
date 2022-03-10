@@ -2,6 +2,7 @@ package com.lwohvye.springcloud.springcloudlwohvyeprovider.controller;
 
 import cn.hutool.core.convert.Convert;
 import com.github.pagehelper.PageInfo;
+import com.lwohvye.springcloud.springcloudlwohvyeapi.api.Cnarea2018API;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.Cnarea2018;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel;
 import com.lwohvye.springcloud.springcloudlwohvyeprovider.common.annotation.LogAnno;
@@ -29,7 +30,7 @@ import java.util.stream.Collectors;
  */
 @RequestMapping("/cnarea")
 @RestController
-public class Cnarea2018Controller {
+public class Cnarea2018Controller implements Cnarea2018API {
 
     @Autowired
     private Cnarea2018Service cnarea2018Service;
@@ -37,7 +38,7 @@ public class Cnarea2018Controller {
     private RedisUtil redisUtil;
     @Autowired
     private BloomFilterHelper<String> bloomFilterHelper;
-//    服务发现
+    //    服务发现
     @Autowired
     private DiscoveryClient client;
 
@@ -51,7 +52,7 @@ public class Cnarea2018Controller {
     @LogAnno(operateType = "异步线程测试")
     @ApiOperation(value = "根据省名获取下属区划,多线程异步", notes = "多个省名使用逗号分隔")
     @ApiImplicitParam(name = "levels", value = "查询区划级别，实际可使用下拉选择 0省、直辖市 1市 2区县 3街道办事处 4社区居委会")
-    @PostMapping("/list")
+    @Override
     public ResultModel<List<PageInfo<Cnarea2018>>> list(@RequestParam(value = "province") String province,
                                                         @RequestParam(value = "levels") String levels,
                                                         @RequestParam(value = "page", defaultValue = "1") String page,
@@ -85,7 +86,7 @@ public class Cnarea2018Controller {
     @LogAnno(operateType = "同步线程测试，与多线程对比")
     @ApiOperation(value = "根据省名获取下属区划,单线程模式", notes = "多个省名使用逗号分隔")
     @ApiImplicitParam(name = "levels", value = "查询区划级别，实际可使用下拉选择 0省、直辖市 1市 2区县 3街道办事处 4社区居委会")
-    @PostMapping("/listSingle")
+    @Override
     public ResultModel<List<PageInfo<Cnarea2018>>> listSingle(String province, String levels, int page, int pageSize) {
 //        设置区划级别，0省、直辖市 1市 2区县 3街道办事处 4社区居委会
         Integer level = Convert.toInt(levels);
@@ -98,7 +99,7 @@ public class Cnarea2018Controller {
     }
 
     @GetMapping("/discovery")
-    public Object discovery(){
+    public Object discovery() {
         List<String> clientServices = client.getServices();
         System.out.println(clientServices);
 

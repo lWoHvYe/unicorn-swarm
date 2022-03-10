@@ -1,8 +1,9 @@
-package com.lwohvye.springcloud.springcloudlwohvyeapi.service;
+package com.lwohvye.springcloud.springcloudlwohvyeapi.service.fallback;
 
 import com.lwohvye.springcloud.springcloudlwohvyeapi.common.util.PageUtil;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.User;
+import com.lwohvye.springcloud.springcloudlwohvyeapi.service.SysUserFeignClientService;
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;
 

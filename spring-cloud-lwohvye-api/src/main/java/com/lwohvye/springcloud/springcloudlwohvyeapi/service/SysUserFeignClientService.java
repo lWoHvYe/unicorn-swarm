@@ -4,6 +4,7 @@ package com.lwohvye.springcloud.springcloudlwohvyeapi.service;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.common.util.PageUtil;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.ResultModel;
 import com.lwohvye.springcloud.springcloudlwohvyeapi.entity.User;
+import com.lwohvye.springcloud.springcloudlwohvyeapi.service.fallback.SysUserFeignClientServiceFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
