@@ -20,7 +20,7 @@
         <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
         <mybatis-starter.version>2.2.0</mybatis-starter.version>
-        <mysql-connector.version>8.0.19</mysql-connector.version>
+        <mysql-connector.version>8.0.28</mysql-connector.version>
         <lombok.version>1.18.22</lombok.version>
         <druid-starter.version>1.2.8</druid-starter.version>
         <pagehelper-starter.version>1.4.1</pagehelper-starter.version>
