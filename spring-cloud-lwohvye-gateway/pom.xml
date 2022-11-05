@@ -3,31 +3,25 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <!--添加实际parent-->
         <artifactId>spring-cloud-lwohvye</artifactId>
         <groupId>com.lwohvye.springcloud</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>spring-cloud-lwohvye-api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>spring-cloud-lwohvye-api</name>
-    <description>Comman API</description>
+
+    <artifactId>spring-cloud-lwohvye-gateway</artifactId>
+    <name>spring-cloud-lwohvye-gateway</name>
+    <description>spring-cloud-lwohvye-gateway</description>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
-        <!--lombok-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <!--web-->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

@@ -17,21 +17,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
-        <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
-        <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
-        <mybatis-starter.version>2.2.0</mybatis-starter.version>
-        <mysql-connector.version>8.0.28</mysql-connector.version>
-        <lombok.version>1.18.22</lombok.version>
-        <druid-starter.version>1.2.8</druid-starter.version>
-        <pagehelper-starter.version>1.4.1</pagehelper-starter.version>
-        <shiro-starter.version>1.7.1</shiro-starter.version>
-        <shiro-redis.version>3.3.1</shiro-redis.version>
-        <springfox.version>2.9.2</springfox.version>
-        <knife4j-starter.version>2.0.1</knife4j-starter.version>
-        <junit.version>4.13.1</junit.version>
-        <!--3.x系列改动较大，后续再升级-->
-        <easyexcel.version>2.2.11</easyexcel.version>
-        <hutool.version>5.3.5</hutool.version>
+        <!--    hystrix最终版是H.SR12 + Boot 2.3.12    -->
+        <!--<spring-boot.version>2.3.12.RELEASE</spring-boot.version>-->
+        <!--<spring-cloud.version>Hoxton.SR12</spring-cloud.version>-->
+        <spring-boot.version>2.6.13</spring-boot.version>
+        <spring-cloud.version>2021.0.5</spring-cloud.version>
     </properties>
 
     <dependencyManagement>
@@ -51,74 +41,6 @@
                 <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <!--mybatis-->
-            <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis-starter.version}</version>
-            </dependency>
-            <!--数据库连接-->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql-connector.version}</version>
-                <scope>runtime</scope>
-            </dependency>
-            <!--alibaba druid-->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-starter</artifactId>
-                <version>${druid-starter.version}</version>
-            </dependency>
-            <!--lombok-->
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-                <optional>true</optional>
-            </dependency>
-            <!--分页插件-->
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper-spring-boot-starter</artifactId>
-                <version>${pagehelper-starter.version}</version>
-            </dependency>
-            <!--junit-->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <!--swagger前端UI-->
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger-ui</artifactId>
-                <version>${springfox.version}</version>
-            </dependency>
-            <!--swagger-ui扩展，美化样式-->
-            <dependency>
-                <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-spring-boot-starter</artifactId>
-                <version>${knife4j-starter.version}</version>
-            </dependency>
-            <!--shiro整合springboot-->
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-spring-boot-web-starter</artifactId>
-                <version>${shiro-starter.version}</version>
-            </dependency>
-            <!--shiro整合redis-->
-            <dependency>
-                <groupId>org.crazycake</groupId>
-                <artifactId>shiro-redis</artifactId>
-                <version>${shiro-redis.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -182,25 +104,16 @@
         <!--config-->
         <module>spring-cloud-lwohvye-config-3344</module>
         <module>spring-cloud-lwohvye-config-client-3355</module>
-        <module>spring-cloud-lwohvye-provider-config-client</module>
-        <module>spring-cloud-lwohvye-consumer-config-client</module>
         <!--api-->
         <module>spring-cloud-lwohvye-api</module>
         <!--provider-->
-        <module>spring-cloud-lwohvye-provider-8084</module>
-        <module>spring-cloud-lwohvye-provider-8085</module>
-        <module>spring-cloud-lwohvye-provider-8086</module>
+        <module>spring-cloud-lwohvye-provider-config-client</module>
         <!--consumer-->
-        <module>spring-cloud-lwohvye-consumer</module>
-        <module>spring-cloud-lwohvye-consumer-feign</module>
-        <module>spring-cloud-lwohvye-consumer-hystrix</module>
-        <module>spring-cloud-lwohvye-consumer-security</module>
+        <module>spring-cloud-lwohvye-consumer-config-client</module>
         <!--eureka-->
         <module>spring-cloud-lwohvye-eureka-7001</module>
-        <module>spring-cloud-lwohvye-eureka-7002</module>
-        <module>spring-cloud-lwohvye-eureka-7003</module>
-        <!--zuul-->
-        <module>spring-cloud-lwohvye-zuul-gateway</module>
+        <!--gateway-->
+        <module>spring-cloud-lwohvye-gateway</module>
         <!--webSocket-->
         <module>spring-cloud-lwohvye-websocket</module>
     </modules>

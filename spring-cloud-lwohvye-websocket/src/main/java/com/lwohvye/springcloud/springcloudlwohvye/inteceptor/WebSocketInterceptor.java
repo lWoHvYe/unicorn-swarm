@@ -1,7 +1,6 @@
 package com.lwohvye.springcloud.springcloudlwohvye.inteceptor;
 
 import com.lwohvye.springcloud.springcloudlwohvye.entiry.Constants;
-import org.apache.shiro.SecurityUtils;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.socket.WebSocketHandler;
@@ -34,7 +33,7 @@ public class WebSocketInterceptor extends HttpSessionHandshakeInterceptor {
          */
 
         //使用userName区分WebSocketHandler，以便定向发送消息(使用shiro获取session,或是使用上面的方式)
-        String userName = (String) SecurityUtils.getSubject().getSession().getAttribute(Constants.SESSION_USERNAME);
+        String userName = null;
         if (userName == null) {
             userName = "default-system";
         }
