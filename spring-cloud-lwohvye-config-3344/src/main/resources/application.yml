@@ -3,23 +3,25 @@ server:
 
 spring:
   application:
-    name:  lwohvye-spring-cloud-config
+    name: lwohvye-spring-cloud-config
   cloud:
     config:
       server:
-       git:
-        uri: git@github.com:lWoHvYe/spring-cloud-lwohvye-config.git  #GitHub上面的git仓库名字
+        git:
+          uri: https://github.com/lWoHvYe/spring-cloud-lwohvye-config.git  #GitHub上面的git仓库名字
+          delete-untracked-branches: true
+          refresh-rate: 30
   rabbitmq: #rabbitmq相关配置，15672是web管理端口，5672是mq访问端口
     port: 5672
-    host: 192.168.0.145
-    username: guest
-    password: guest
+    host: 10.211.55.140
+    username: admin
+    password: admin
 
 eureka:
   client: #客户端注册进eureka服务列表内
     service-url:
-      #defaultZone: http://localhost:7001/eureka
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+      defaultZone: http://localhost:7001/eureka
+  #      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
   instance:
     instance-id: lwohvye-spring-cloud-config
     prefer-ip-address: true     #访问路径可以显示IP地址

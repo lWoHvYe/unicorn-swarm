@@ -14,7 +14,7 @@ Spring Cloud Netflix
 - consumer-config-client 服务消费，整合3355，启动获取远程配置
 - hystrix 服务熔断与限流
 - zuul 网关
-- websocket 印象中与配置刷新有关，后续确定
+- websocket 应该只是消息推送
 
 ### 部分笔记
 
@@ -22,15 +22,17 @@ Spring Cloud Netflix
 - Consumer中Feign使用接口调用映射，当调用失败时进入FallbackFactory
 - 将Feign相关放到api层，是因为在provider和consumer都有用到，在provider中通过这种方式可能（？）可以调用到其他的provider实例。这算是一种情况，但Feign是放到consumer层还是下沉到api层，后续再考虑考虑
 - Provider和Consumer本身是相对的概念。
-  - 放到api层的好处是：api由provider侧维护，当consumer需要使用时，只需引入api即可，不必再自行开发Feign及降级逻辑。
-  - 可能带来的问题是：在consumer层引入了些不需要的Feign（违背最小依赖），另一方面api侧对Feign的改动，可能对consumer侧产生影响，有一定的不可控，以及不同的consumer侧可能有自己的降级逻辑（这个自己再写个Feign可以解决）。
+    - 放到api层的好处是：api由provider侧维护，当consumer需要使用时，只需引入api即可，不必再自行开发Feign及降级逻辑。
+    - 可能带来的问题是：在consumer层引入了些不需要的Feign（违背最小依赖），另一方面api侧对Feign的改动，可能对consumer侧产生影响，有一定的不可控，以及不同的consumer侧可能有自己的降级逻辑（这个自己再写个Feign可以解决）。
+- 配置刷新使用bus总线。可以通过config-server触发，也可通过config-client触发，还可定点通知
 
-#### Feign的两种实现方式 
+#### Feign的两种实现方式
+
 - 第一种就是Feign和生产者的RequestMapping保持一致
 - 第二种是在Api模块中定义提供所有请求的接口xxxApi，然后controller实现xxxAPI，FeignClient继承xxxAPI，这样就不必要写重复代码了。
 
-
 #### TODO
+
 - 升级Spring Cloud到最新版本（Eureka和Hystrix保持维护的最终版）
 - 简化业务逻辑，只验证组件
 - 使用Api-Gateway替换Zuul做Gateway

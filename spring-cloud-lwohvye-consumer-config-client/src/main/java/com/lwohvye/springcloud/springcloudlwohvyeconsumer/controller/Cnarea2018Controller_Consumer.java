@@ -18,7 +18,6 @@ import java.util.List;
  * @description
  * @date 2020/1/16 15:12
  */
-@RequestMapping("/consumer/cnarea")
 @RestController
 public class Cnarea2018Controller_Consumer {
 
@@ -26,7 +25,7 @@ public class Cnarea2018Controller_Consumer {
     @Autowired
     private Cnarea2018FeignClientService cnarea2018FeignClientService;
 
-    @PostMapping("/list")
+    @PostMapping("/consumer/cnarea/list")
     public ResultModel<List<Cnarea2018>> list() {
         return cnarea2018FeignClientService.list();
     }
