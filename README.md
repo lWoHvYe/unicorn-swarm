@@ -28,3 +28,9 @@ Spring Cloud Netflix
 #### Feign的两种实现方式 
 - 第一种就是Feign和生产者的RequestMapping保持一致
 - 第二种是在Api模块中定义提供所有请求的接口xxxApi，然后controller实现xxxAPI，FeignClient继承xxxAPI，这样就不必要写重复代码了。
+
+
+#### TODO
+- 升级Spring Cloud到最新版本（Eureka和Hystrix保持维护的最终版）
+- 简化业务逻辑，只验证组件
+- 使用Api-Gateway替换Zuul做Gateway
