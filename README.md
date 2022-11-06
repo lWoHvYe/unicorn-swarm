@@ -25,6 +25,11 @@ Spring Cloud Netflix
     - 放到api层的好处是：api由provider侧维护，当consumer需要使用时，只需引入api即可，不必再自行开发Feign及降级逻辑。
     - 可能带来的问题是：在consumer层引入了些不需要的Feign（违背最小依赖），另一方面api侧对Feign的改动，可能对consumer侧产生影响，有一定的不可控，以及不同的consumer侧可能有自己的降级逻辑（这个自己再写个Feign可以解决）。
 - 配置刷新使用bus总线。可以通过config-server触发，也可通过config-client触发，还可定点通知
+    - 不使用总线时，可 post 请求 client-host:port/actuator/refresh 来主动刷新配置
+    - 使用总线时，可 post 请求 server-host:port/actuator/busrefresh 来刷新配置，这里注意 busrefresh是自己配置的path，不要带横线"-"，也不要有驼峰命名
+      之前的bus-refresh与busRefresh都报了405
+    - 使用总线时定点通知，可 post 请求 server-host:port/actuator/busrefresh/{destination} ，destination为application-name:port ，
+      不带port是同name的所有，同时支持模糊匹配，prefix* 匹配同一prefix的所有（有一个name为springCloudBus的Topic Exchange，所以支持这些路由操作）
 
 #### Feign的两种实现方式
 
