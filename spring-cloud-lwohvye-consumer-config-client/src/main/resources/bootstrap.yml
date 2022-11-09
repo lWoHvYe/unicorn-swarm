@@ -6,7 +6,7 @@
 spring:
   cloud:
     config:
-      name: lwohvye-springcloud-config-consumer-client,cloud-lwohvye-extra-config #需要从github上读取的资源名称，注意没有yml后缀名，这里支持,分割的多个
+      name: lwohvye-springcloud-config-consumer-client,cloud-lwohvye-extra-config #需要从github上读取的资源名称，注意没有yml后缀名，这里支持,分割的多个，当都定义了某个属性时，后面的覆盖前面的
       profile: dev   #本次访问的配置项，这里也支持,分割的多个
       label: master
       uri: http://localhost:3344  #本微服务启动后先去找3344号服务，通过SpringCloudConfig获取GitHub的服务地址
