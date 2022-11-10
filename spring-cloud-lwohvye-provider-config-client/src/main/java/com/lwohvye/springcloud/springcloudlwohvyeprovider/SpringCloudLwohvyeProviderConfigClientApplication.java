@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 //开启缓存支持
 @EnableCaching
 //开启定时任务
-@EnableScheduling
+@EnableScheduling // 别忘了开启定时任务
 @EnableEurekaClient //本服务启动后会自动注册进eureka服务中
 @EnableDiscoveryClient //启用服务发现
 //开启监控

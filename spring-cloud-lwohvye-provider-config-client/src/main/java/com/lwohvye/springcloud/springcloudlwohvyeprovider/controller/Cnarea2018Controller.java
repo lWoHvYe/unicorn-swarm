@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -19,7 +18,6 @@ import java.util.List;
  * @description
  * @date 2020/1/16 15:12
  */
-@RequestMapping("/cnarea")
 @RestController
 public class Cnarea2018Controller implements Cnarea2018API {
     //    服务发现
