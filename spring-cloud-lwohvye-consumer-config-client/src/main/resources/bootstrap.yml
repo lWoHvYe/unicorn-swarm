@@ -3,10 +3,21 @@
 # to use bootstrap, should set 'spring.cloud.bootstrap.enabled=true' in env
 #主要用于先行加载一些配置信息，比如端口号
 # 当需要读多个config file 时，see: https://stackoverflow.com/questions/43956072/how-to-read-multiple-config-file-from-spring-cloud-config-server
+#Locating Remote Configuration Resources
+#The Config Service serves property sources from /{application}/{profile}/{label}, where the default bindings in the client app are as follows:
+#"application" = ${spring.application.name}
+#"profile" = ${spring.profiles.active} (actually Environment.getActiveProfiles())
+#"label" = "master"
+#
+#When setting the property ${spring.application.name} do not prefix your app name with the reserved word application- to prevent issues resolving the correct property source.
+#You can override all of them by setting spring.cloud.config.* (where * is name, profile or label).
+#  The label is useful for rolling back to previous versions of configuration.With the default Config Server implementation, it can be a git label, branch name, or commit ID.
+#  Label can also be provided as a comma-separated list. In that case, the items in the list are tried one by one until one succeeds. This behavior can be useful when working on a feature branch.
+#  For instance, you might want to align the config label with your branch but make it optional (in that case, use spring.cloud.config.label=myfeature,develop).
 spring:
   cloud:
     config:
       name: lwohvye-springcloud-config-consumer-client,cloud-lwohvye-extra-config #需要从github上读取的资源名称，注意没有yml后缀名，这里支持,分割的多个，当都定义了某个属性时，后面的覆盖前面的
       profile: dev   #本次访问的配置项，这里也支持,分割的多个
-      label: master
+      label: master  #这个也支持,分割的多个，但却不是所有都使用，而是try one by one until one succeeds
       uri: http://localhost:3344  #本微服务启动后先去找3344号服务，通过SpringCloudConfig获取GitHub的服务地址
