@@ -1,0 +1,19 @@
+# https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#composite-environment-repositories
+spring:
+  profiles:
+    active: composite #这个不能少
+  cloud:
+    config:
+      server:
+        composite:
+          - type: svn
+            uri: file:///path/to/svn/repo
+          - type: git #这里就正常配，也支持repos, pattern, search-paths...
+            uri: file:///path/to/rex/git/repo
+          - type: git
+            uri: file:///path/to/walter/git/repo
+
+#Using this configuration, precedence is determined by the order in which repositories are listed under the composite key.
+#  In the above example, the Subversion repository is listed first, so a value found in the Subversion repository will override values found for the same property in one of the Git repositories.
+#  A value found in the rex Git repository will be used before a value found for the same property in the walter Git repository.
+# 前面的优先级更高，后面无法覆盖前面的
