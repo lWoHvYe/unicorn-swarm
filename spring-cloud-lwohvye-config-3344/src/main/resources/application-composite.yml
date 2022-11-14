@@ -1,4 +1,5 @@
 # https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#composite-environment-repositories
+# 除此之外，还有配的配置方式，也在上面的link中
 spring:
   profiles:
     active: composite #这个不能少
@@ -8,7 +9,7 @@ spring:
         composite:
           - type: svn
             uri: file:///path/to/svn/repo
-          - type: git #这里就正常配，也支持repos, pattern, search-paths...
+          - type: git #这里就正常配，也支持repos, pattern, search-paths(但不再支持{application}的形式)...
             uri: file:///path/to/rex/git/repo
           - type: git
             uri: file:///path/to/walter/git/repo
