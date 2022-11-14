@@ -11,6 +11,7 @@ spring:
           uri: https://github.com/lWoHvYe/spring-cloud-lwohvye-config.git  #GitHub上面的git仓库名字
           delete-untracked-branches: true
           refresh-rate: 30
+          search-paths: xxx,{application} #配置文件可以在不同的folder中，这里使用`{application}`来实现，根据传来的config.name(支持,分隔)额外查不同的folder(查root及extra)
   rabbitmq: #rabbitmq相关配置，15672是web管理端口，5672是mq访问端口
     port: 5672
     host: 10.211.55.140
