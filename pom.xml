@@ -20,8 +20,8 @@
         <!--    hystrix最终版是H.SR12 + Boot 2.3.12    -->
         <!--<spring-boot.version>2.3.12.RELEASE</spring-boot.version>-->
         <!--<spring-cloud.version>Hoxton.SR12</spring-cloud.version>-->
-        <spring-boot.version>2.6.13</spring-boot.version>
-        <spring-cloud.version>2021.0.5</spring-cloud.version>
+        <spring-boot.version>3.1.0</spring-boot.version>
+        <spring-cloud.version>2022.0.4</spring-cloud.version>
     </properties>
 
     <dependencyManagement>
@@ -47,39 +47,6 @@
 
     <build>
         <finalName>spring-cloud-lwohvye</finalName>
-        <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
-            <plugins>
-                <plugin>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.1.0</version>
-                </plugin>
-                <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
-                <plugin>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.0.2</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.0</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.22.1</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>3.2.2</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-install-plugin</artifactId>
-                    <version>2.5.2</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.8.2</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
