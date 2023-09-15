@@ -3,7 +3,6 @@ package com.lwohvye.springcloud.springcloudlwohvyeapi.aspect;
 import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
-import io.vavr.control.Try;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -59,11 +58,11 @@ public class CustomCircuitBreakerAspect {
         var optionalCircuitBreaker = circuitBreakerRegistry.find("swarm");
         if (optionalCircuitBreaker.isPresent()) {
             var decorateSupplier = CircuitBreaker.decorateCheckedSupplier(optionalCircuitBreaker.get(), joinPoint::proceed);
-            var result = Try.of(decorateSupplier);
-            if (result.isSuccess())
-                return result.get();
-            else
-                return fallback(result);
+            try {
+                return decorateSupplier.get();
+            } catch (Throwable var2) {
+                return fallback(var2);
+            }
         } else
             return joinPoint.proceed();
     }
@@ -78,12 +77,12 @@ public class CustomCircuitBreakerAspect {
         var optionalCircuitBreaker = circuitBreakerRegistry.find("swarm");
         if (optionalCircuitBreaker.isPresent()) {
             var decorateSupplier = CircuitBreaker.decorateCheckedSupplier(optionalCircuitBreaker.get(), joinPoint::proceed);
-            return decorateSupplier.apply();
+            return decorateSupplier.get();
         } else
             return joinPoint.proceed();
     }
 
-    private ResponseEntity fallback(Try<Object> result) {
+    private ResponseEntity fallback(Throwable result) {
         var cause = result.getCause();
         log.error(cause.getMessage());
         if (cause instanceof RestClientResponseException responseException)
