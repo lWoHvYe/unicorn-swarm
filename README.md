@@ -2,7 +2,7 @@
 
 Spring Cloud Netflix
 
-基于Spring Boot 2.3.x、Spring Cloud H版
+基于Spring Boot 3.1.x、Spring Cloud 2022版
 
 ### 模块说明
 
@@ -38,6 +38,5 @@ Spring Cloud Netflix
 
 #### TODO
 
-- 升级Spring Cloud到最新版本（Eureka和Hystrix保持维护的最终版）
+- 升级Spring Cloud到最新版本
 - 简化业务逻辑，只验证组件
-- 使用Api-Gateway替换Zuul做Gateway
