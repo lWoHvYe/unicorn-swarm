@@ -31,3 +31,11 @@ hs_err_pid*
 /spring-cloud-lwohvye-consumer-config-client/mvnw
 /spring-cloud-lwohvye-consumer-config-client/mvnw.cmd
 /spring-cloud-lwohvye-consumer-config-client/.mvn/
+
+# Gradle
+.idea/**/gradle.xml
+.idea/**/libraries
+
+.gradle
+**/build/
+!src/**/build/
