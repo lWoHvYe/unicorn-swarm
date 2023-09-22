@@ -16,7 +16,7 @@ import org.springframework.context.annotation.ComponentScan;
 //        启动类所在包路径
         "com.lwohvye.springcloud.springcloudlwohvyeconsumer",
 //        fallbackFactory实现所在包路径
-        "com.lwohvye.springcloud.springcloudlwohvyeapi.service"}
+        "com.lwohvye.springcloud.springcloudlwohvyeapi"}
 )
 public class SpringCloudLwohvyeConsumerConfigApplication {
 

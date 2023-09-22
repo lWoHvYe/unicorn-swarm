@@ -38,8 +38,13 @@ public class CustomCircuitBreakerAspect {
      * but!! this seems only available for default client: feign.Client.Default
      */
     @Pointcut("execution(public * feign.Client.execute(..))")
+//    @Pointcut("@within(org.springframework.cloud.openfeign.FeignClient)") // not work
     public void feignClient() {
     }
+
+//    @Pointcut("execution(* org.springframework.cloud.netflix.feign.ribbon.LoadBalancerFeignClient.*(..))") // 使用Ribbon后
+//    public void feignClientPointcut() {
+//    }
 
     @Around("restTemExchange()")
     public Object circuitBreakerRestAroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
