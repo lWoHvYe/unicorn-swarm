@@ -4,7 +4,7 @@
 
 plugins {
     id("com.lwohvye.springcloud.java-conventions")
-    id("org.springframework.boot") version "3.2.0-M2"
+    id("org.springframework.boot") version "3.2.0-M1"
     id("io.spring.dependency-management") version "1.1.3"
     id("io.freefair.lombok") version "8.3"
 }
