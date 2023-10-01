@@ -2,7 +2,7 @@
 
 Spring Cloud Netflix
 
-基于Spring Boot 3.1.x、Spring Cloud 2022版
+基于Java 17、Spring Boot 3.2、Spring Cloud 2023版
 
 ### 模块说明
 
@@ -12,8 +12,6 @@ Spring Cloud Netflix
 - eureka-x 服务注册与发现集群
 - provider-config-client 服务提供，整合3355，启动获取远程配置
 - consumer-config-client 服务消费，整合3355，启动获取远程配置
-- hystrix 服务熔断与限流
-- zuul 网关
 - websocket 应该只是消息推送
 
 ### 部分笔记
@@ -36,7 +34,3 @@ Spring Cloud Netflix
 - 第一种就是Feign和生产者的RequestMapping保持一致
 - 第二种是在Api模块中定义提供所有请求的接口xxxApi，然后controller实现xxxAPI，FeignClient继承xxxAPI，这样就不必要写重复代码了。
 
-#### TODO
-
-- 升级Spring Cloud到最新版本
-- 简化业务逻辑，只验证组件
