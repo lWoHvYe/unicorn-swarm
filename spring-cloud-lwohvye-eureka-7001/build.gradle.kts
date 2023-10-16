@@ -3,13 +3,9 @@
  */
 
 plugins {
-    id("com.lwohvye.springcloud.java-conventions")
-    id("org.springframework.boot") version "3.2.0-M3"
-    id("io.spring.dependency-management") version "1.1.3"
-    id("io.freefair.lombok") version "8.3"
+    id("org.springframework.boot")
+    id("io.spring.dependency-management")
 }
-
-extra["springCloudVersion"] = "2023.0.0-M2"
 
 dependencyManagement {
     imports {

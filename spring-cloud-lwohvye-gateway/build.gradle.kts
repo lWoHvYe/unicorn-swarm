@@ -3,13 +3,19 @@
  */
 
 plugins {
-    id("com.lwohvye.springcloud.java-conventions")
-    id("io.freefair.lombok") version "8.3"
+    id("org.springframework.boot")
+    id("io.spring.dependency-management")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+    }
 }
 
 dependencies {
-    api("org.springframework.cloud:spring-cloud-starter-gateway:4.0.7")
-    api("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.3")
+    api("org.springframework.cloud:spring-cloud-starter-gateway")
+    api("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
     testImplementation("org.springframework.boot:spring-boot-starter-test:3.1.0")
 }
 
