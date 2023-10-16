@@ -9,11 +9,55 @@ pluginManagement {
 }
 
 rootProject.name = "unicorn-swarm"
-include(":spring-cloud-lwohvye-config-3344")
-include(":spring-cloud-lwohvye-provider-config-client")
-include(":spring-cloud-lwohvye-eureka-7001")
-include(":spring-cloud-lwohvye-gateway")
-include(":spring-cloud-lwohvye-config-client-3355")
-include(":spring-cloud-lwohvye-consumer-config-client")
-include(":spring-cloud-lwohvye-api")
-include(":spring-cloud-lwohvye-websocket")
+
+val kotlinVersion = "1.9.20-RC"
+
+val excludes = providers.gradleProperty("excludeProjects").orNull.toString().split(",")
+
+val buildFiles = fileTree(rootDir) {
+    include("**/*.gradle", "**/*.gradle.kts")
+    exclude(
+        "build",
+        "**/gradle",
+        "settings.gradle",
+        "settings.gradle.kts",
+        "buildSrc",
+        "/build.gradle",
+        "/build.gradle.kts",
+        ".*",
+        "out"
+    )
+
+    if (kotlinVersion.matches(Regex("^1\\.[0-8]\\.\\d{1,2}\$|^0\\.\\d+\\.\\d+\$")) ||
+        kotlinVersion.matches(Regex("^1\\.9\\.[0-1]{1,2}-?(Beta|RC)?[0-9]?\$"))
+    ) {
+        extra["kotlinEnable"] = false
+        exclude("**/*-kotlin.gradle.kts")
+    }
+
+    exclude(excludes)
+}
+
+buildFiles.forEach { buildFile ->
+    val isDefaultName = buildFile.name == "build.gradle" || buildFile.name == "build.gradle.kts"
+    val isKotlin = buildFile.name.endsWith(".kts")
+
+//    if (extra["kotlinEnable"] == false && buildFile.name == "valentine-starter.gradle") return
+//
+    if (isDefaultName) {
+        val buildFilePath = buildFile.parentFile.absolutePath
+        val projectPath = buildFilePath.replace(rootDir.absolutePath.toString(), "").replace(File.separator, ":")
+        include(projectPath)
+    } else {
+        val projectName =
+            if (isKotlin) buildFile.name.replace(".gradle.kts", "") else buildFile.name.replace(".gradle", "")
+
+        val projectPath = ":$projectName"
+        include(projectPath)
+
+        val project = findProject(projectPath)
+        project?.name = projectName
+        project?.projectDir = buildFile.parentFile
+        project?.buildFileName = buildFile.name
+    }
+}
