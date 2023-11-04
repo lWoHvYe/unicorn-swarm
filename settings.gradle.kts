@@ -11,7 +11,7 @@ pluginManagement {
 dependencyResolutionManagement {
     versionCatalogs {
         create("libs") {
-            version("springBoot", "3.2.0-M3")
+            version("springBoot", "3.2.0-RC2")
 
             plugin("spring-boot", "org.springframework.boot").versionRef("springBoot")
 
