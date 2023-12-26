@@ -1,4 +1,4 @@
-package com.lwohvye.springcloud.springcloudlwohvyeapi.config;
+package com.lwohvye.springcloud.springcloudlwohvyeconsumer.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,9 +13,9 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.stream.Collectors;
 
-public class LoggingInterceptor implements ClientHttpRequestInterceptor {
+public class RestTemplateLoggingInterceptor implements ClientHttpRequestInterceptor {
 
-    static Logger LOGGER = LoggerFactory.getLogger(LoggingInterceptor.class);
+    static Logger LOGGER = LoggerFactory.getLogger(RestTemplateLoggingInterceptor.class);
 
     @Override
     public ClientHttpResponse intercept(HttpRequest req, byte[] reqBody, ClientHttpRequestExecution ex) throws IOException {

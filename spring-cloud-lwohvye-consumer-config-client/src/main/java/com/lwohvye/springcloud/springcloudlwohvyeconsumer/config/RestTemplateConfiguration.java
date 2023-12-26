@@ -1,6 +1,6 @@
 package com.lwohvye.springcloud.springcloudlwohvyeconsumer.config;
 
-import com.lwohvye.springcloud.springcloudlwohvyeapi.config.LoggingInterceptor;
+import com.lwohvye.springcloud.springcloudlwohvyeapi.interceptor.RestTemplateHeaderModifierInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -17,10 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
-public class RestConfiguration //boot -->spring   applicationContext.xml --- @Configuration配置   ConfigBean = applicationContext.xml
+public class RestTemplateConfiguration //boot -->spring   applicationContext.xml --- @Configuration配置   ConfigBean = applicationContext.xml
 {
 
-    static Logger LOGGER = LoggerFactory.getLogger(RestConfiguration.class);
+    static Logger LOGGER = LoggerFactory.getLogger(RestTemplateConfiguration.class);
 
     //RestTemplate提供了多种便捷访问远程Http服务的方法，
     //是一种简单便捷的访问restful服务模板类，是Spring提供的用于访问Rest服务的客户端模板工具集
@@ -40,7 +40,8 @@ public class RestConfiguration //boot -->spring   applicationContext.xml --- @Co
         if (CollectionUtils.isEmpty(interceptors)) {
             interceptors = new ArrayList<>();
         }
-        interceptors.add(new LoggingInterceptor());
+        interceptors.add(new RestTemplateHeaderModifierInterceptor());
+        interceptors.add(new RestTemplateLoggingInterceptor());
         restTemplate.setInterceptors(interceptors);
         return restTemplate;
     }
