@@ -11,7 +11,7 @@ pluginManagement {
 dependencyResolutionManagement {
     versionCatalogs {
         create("libs") {
-            version("springBoot", "3.2.1")
+            version("springBoot", "3.2.3")
 
             plugin("spring-boot", "org.springframework.boot").versionRef("springBoot")
 
@@ -28,7 +28,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "unicorn-swarm"
 
-val kotlinVersion = "1.9.22"
+val kotlinVersion = "1.9.23"
 
 val excludes = providers.gradleProperty("excludeProjects").orNull.toString().split(",")
 
