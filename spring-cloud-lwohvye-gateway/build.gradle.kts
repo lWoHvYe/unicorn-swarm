@@ -16,7 +16,7 @@ dependencyManagement {
 dependencies {
     api("org.springframework.cloud:spring-cloud-starter-gateway")
     api("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
-    testImplementation("org.springframework.boot:spring-boot-starter-test:3.1.0")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 description = "spring-cloud-lwohvye-gateway"
