@@ -16,6 +16,7 @@ dependencyManagement {
 dependencies {
     api("org.springframework.cloud:spring-cloud-starter-openfeign")
     api("org.springframework.boot:spring-boot-starter-web")
+    api("org.springframework.boot:spring-boot-starter-aop")
     api("org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j")
 }
 

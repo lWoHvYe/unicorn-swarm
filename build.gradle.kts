@@ -5,7 +5,7 @@ plugins {
     id("io.freefair.lombok") version "8.6" apply false
 }
 
-extra["springCloudVersion"] = "2023.0.1"
+extra["springCloudVersion"] = "2023.0.4"
 
 subprojects {
 
